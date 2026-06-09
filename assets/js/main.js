@@ -188,4 +188,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 7. Scroll-Reactive Decorative Tortellino
+  const tortellino = document.querySelector('.scroll-tortellino');
+  if (tortellino) {
+    let ticking = false;
+    const updateTortellino = () => {
+      const y = window.scrollY;
+      // Rotate with scroll and gently bob up/down
+      tortellino.style.transform = `rotate(${y * 0.22}deg) translateY(${Math.sin(y / 220) * 10}px)`;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateTortellino);
+        ticking = true;
+      }
+    });
+    updateTortellino();
+  }
 });

@@ -1654,3 +1654,58 @@ textarea.form-input {
   }
 }
 
+/* Clients Auto-Scrolling Marquee */
+.clients__marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.clients__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 4rem;
+  animation: clients-scroll 35s linear infinite;
+}
+
+.clients__marquee:hover .clients__track {
+  animation-play-state: paused;
+}
+
+@keyframes clients-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients__track { animation: none; }
+}
+
+/* Scroll-Reactive Decorative Tortellino */
+.scroll-tortellino {
+  position: fixed;
+  right: 2.5%;
+  bottom: 6%;
+  width: 110px;
+  height: auto;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.95;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.28));
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .scroll-tortellino {
+    width: 68px;
+    right: 4%;
+    bottom: 4%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-tortellino { display: none; }
+}
+
