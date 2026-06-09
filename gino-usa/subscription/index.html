@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gino's Pasta of the Month Club | Gino USA</title>
+    <meta name="description" content="Join Gino's Pasta of the Month Club. Choose from Starter, Family, or Collector tiers. Authentic Bologna pasta delivered fresh to your door monthly.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sub-hero {
+            background-color: var(--cream);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .sub-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+        .sub-hero p {
+            font-size: 1.25rem;
+            color: var(--olive);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .tier-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            border: 2px solid var(--cream-dark);
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+        }
+        .tier-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-md);
+        }
+        .tier-card.popular {
+            border-color: var(--terracotta);
+            box-shadow: var(--box-shadow-sm);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--terracotta);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tier-name {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+        .tier-price {
+            font-size: 3rem;
+            font-family: var(--font-heading);
+            color: var(--terracotta);
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+        .tier-price span {
+            font-size: 1rem;
+            font-weight: normal;
+            color: var(--charcoal);
+        }
+        .tier-features {
+            list-style: none;
+            margin-bottom: 36px;
+            text-align: left;
+            flex-grow: 1;
+        }
+        .tier-features li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .tier-features i {
+            color: var(--olive);
+            font-size: 1.1rem;
+        }
+        
+        /* Details Table */
+        .comparison-table-wrapper {
+            margin-top: 80px;
+            border: 1px solid var(--cream-dark);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow-sm);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        th {
+            background-color: var(--cream);
+            color: var(--olive-dark);
+            font-weight: 700;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .check-icon {
+            color: var(--olive);
+            font-weight: 700;
+        }
+
+        /* FAQ block */
+        .faq-grid {
+            max-width: 800px;
+            margin: 48px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-item {
+            background-color: var(--white);
+            border: 1px solid var(--cream-dark);
+            border-radius: var(--border-radius-md);
+            padding: 24px;
+            cursor: pointer;
+        }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: rgba(42,42,42,0.7);
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        @media(max-width: 992px) {
+            .tier-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .comparison-table-wrapper {
+                display: none; /* Hide on mobile for layout ease */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>✨ BOLOGNA DIRECT TO YOU: Free shipping on orders over $50! <a href="../shop/index.html">Shop Now</a></span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-gino">Gino <span class="font-script" style="font-size:2rem;color:var(--gold);vertical-align:middle;">USA</span></span>
+                <span class="logo-tag">Dal 1988 Bologna</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../shop/index.html" class="nav-link">Shop Pasta</a></li>
+                    <li><a href="../story/index.html" class="nav-link">Gino's Story</a></li>
+                    <li><a href="index.html" class="nav-link active">Pasta Club</a></li>
+                    <li><a href="../recipes/index.html" class="nav-link">Recipes Hub</a></li>
+                    <li><a href="../wholesale/index.html" class="nav-link">Wholesale</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="../wholesale/index.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">B2B Portal</a>
+                <button class="icon-btn" id="open-cart-btn" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-basket-shopping fa-xl"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="sub-hero">
+        <div class="container">
+            <h1 class="font-script" style="color:var(--terracotta);">Pasta of the Month Club</h1>
+            <h1>Join the Bologna Table</h1>
+            <p>Curated monthly boxes filled with hand-rolled filled pasta, paired sauces, and signature recipes from Gino's kitchen.</p>
+        </div>
+    </section>
+
+    <!-- Subscription Plans Grid -->
+    <section class="section-padding" style="background-color: var(--cream-light);">
+        <div class="container">
+            
+            <div class="tier-grid">
+                
+                <!-- Plan 1 -->
+                <div class="tier-card">
+                    <h3 class="tier-name">Starter Box</h3>
+                    <div class="tier-price">$39<span>/month</span></div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-check"></i> 2 packages of Gino's pasta</li>
+                        <li><i class="fa-solid fa-check"></i> 1 exclusive printed recipe card</li>
+                        <li><i class="fa-solid fa-check"></i> Access to digital video guides</li>
+                        <li><i class="fa-solid fa-check"></i> Shelf-stable packaging</li>
+                        <li style="opacity:0.4;"><i class="fa-solid fa-xmark"></i> Paired artisanal sauces</li>
+                        <li style="opacity:0.4;"><i class="fa-solid fa-xmark"></i> Limited edition releases</li>
+                    </ul>
+                    <button class="btn btn-secondary add-to-cart-btn" 
+                            data-id="pasta-club-starter" 
+                            data-name="Pasta Club: Starter Plan" 
+                            data-price="39.00" 
+                            data-img="../../wp-content/uploads/2026/02/tortellino-1-e1771186015592.png"
+                            data-pack="Monthly Subscription Box">
+                        Subscribe Now
+                    </button>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="tier-card popular">
+                    <div class="popular-badge">Gino's Recommendation</div>
+                    <h3 class="tier-name">Family Box</h3>
+                    <div class="tier-price">$69<span>/month</span></div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-check"></i> 4 packages of Gino's pasta</li>
+                        <li><i class="fa-solid fa-check"></i> 1 jar of paired artisanal sauce</li>
+                        <li><i class="fa-solid fa-check"></i> 2 exclusive printed recipe cards</li>
+                        <li><i class="fa-solid fa-check"></i> Access to digital video guides</li>
+                        <li><i class="fa-solid fa-check"></i> Free shipping from Florida</li>
+                        <li style="opacity:0.4;"><i class="fa-solid fa-xmark"></i> Limited edition releases</li>
+                    </ul>
+                    <button class="btn btn-primary add-to-cart-btn" 
+                            data-id="pasta-club-family" 
+                            data-name="Pasta Club: Family Plan" 
+                            data-price="69.00" 
+                            data-img="../../wp-content/uploads/2026/05/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg"
+                            data-pack="Monthly Subscription Box">
+                        Subscribe Now
+                    </button>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="tier-card">
+                    <h3 class="tier-name">Collector Box</h3>
+                    <div class="tier-price">$99<span>/month</span></div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-check"></i> 6 packages of Gino's pasta</li>
+                        <li><i class="fa-solid fa-check"></i> Includes rare & limited releases</li>
+                        <li><i class="fa-solid fa-check"></i> 1 jar of premium sauce</li>
+                        <li><i class="fa-solid fa-check"></i> Hand-bound seasonal recipe booklet</li>
+                        <li><i class="fa-solid fa-check"></i> First priority VIP shipping</li>
+                        <li><i class="fa-solid fa-check"></i> Free shipping from Florida</li>
+                    </ul>
+                    <button class="btn btn-secondary add-to-cart-btn" 
+                            data-id="pasta-club-collector" 
+                            data-name="Pasta Club: Collector Plan" 
+                            data-price="99.00" 
+                            data-img="../../wp-content/uploads/2026/05/flavored-pasta-orecchiette-arcobaleno-rainbow.jpg"
+                            data-pack="Monthly Subscription Box">
+                        Subscribe Now
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Detailed Comparison Table -->
+            <div class="comparison-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Club Features</th>
+                            <th>Starter ($39)</th>
+                            <th>Family ($69)</th>
+                            <th>Collector ($99)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pasta Packages Included</td>
+                            <td>2 packs</td>
+                            <td>4 packs</td>
+                            <td>6 packs</td>
+                        </tr>
+                        <tr>
+                            <td>Servings (approximate)</td>
+                            <td>4-6 servings</td>
+                            <td>8-12 servings</td>
+                            <td>12-18 servings</td>
+                        </tr>
+                        <tr>
+                            <td>Signature Recipe Cards</td>
+                            <td>1 card</td>
+                            <td>2 cards</td>
+                            <td>Recipe Booklet</td>
+                        </tr>
+                        <tr>
+                            <td>Paired Gourmet Sauce</td>
+                            <td>&mdash;</td>
+                            <td>1 jar</td>
+                            <td>1 jar</td>
+                        </tr>
+                        <tr>
+                            <td>Limited & Seasonal Specialties</td>
+                            <td>&mdash;</td>
+                            <td>&mdash;</td>
+                            <td><span class="check-icon">&#10003;</span> Included</td>
+                        </tr>
+                        <tr>
+                            <td>Free Ground Shipping</td>
+                            <td>&mdash;</td>
+                            <td><span class="check-icon">&#10003;</span> Free</td>
+                            <td><span class="check-icon">&#10003;</span> Free (Priority)</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Delivery Date Options</td>
+                            <td>&mdash;</td>
+                            <td>&mdash;</td>
+                            <td><span class="check-icon">&#10003;</span> Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQs Accordion Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about the Pasta of the Month Club subscription.</p>
+            </div>
+            
+            <div class="faq-grid">
+                
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Can I skip a month or cancel my subscription? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, absolutely. Through your account panel, you can pause, skip a month, or cancel your subscription at any time before the billing cycle date (the 5th of each month) with zero fees or questions asked.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Is the pasta fresh or shelf-stable? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Gino's subscription features high-quality shelf-stable stuffed tortellini, ravioli, and dried bronze-die egg pasta. Thanks to our traditional curing process, they last for up to 10 months in your pantry without refrigeration.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        When are the subscription boxes shipped? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We bill on the 5th of every month and ship all subscription boxes on the 10th of the month directly from our Jacksonville, Florida warehouse. Standard ground shipping takes 2-4 business days.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        Are there allergen options? <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        At this time, all our subscription boxes contain gluten and eggs, as they are prepared in our traditional pastificio. We hope to offer certified gluten-free options in the future.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Gino USA</h3>
+                <p>Authentic, shelf-stable stuffed tortellini and premium pasta direct from Bologna, Italy to American tables. Roll-out by hand, recipe from 1988.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Shop Gino</h4>
+                <ul class="footer-links">
+                    <li><a href="../shop/index.html">All Pasta</a></li>
+                    <li><a href="../shop/index.html#tortellini">Tortellini & Filled</a></li>
+                    <li><a href="../product/ready-rounds/index.html">Ready Rounds (90s)</a></li>
+                    <li><a href="index.html">Pasta Club</a></li>
+                    <li><a href="../shop/index.html#gift-boxes">Curated Gift Boxes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Gino USA Story</h4>
+                <ul class="footer-links">
+                    <li><a href="../story/index.html">Meet Gino</a></li>
+                    <li><a href="../story/index.html#pastificio">Our Bologna Pastificio</a></li>
+                    <li><a href="../recipes/index.html">Recipe Hub</a></li>
+                    <li><a href="../wholesale/index.html">Foodservice & Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refunds & Returns</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gino USA. All rights reserved.</p>
+            <p>Made in Bologna by <a href="../../pastificio-home/" class="footer-backlink">Pastificio Bolognese S.p.A.</a></p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Cart (<span id="cart-item-count">0</span>)</h3>
+                <button class="close-cart" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-body" id="cart-body">
+                <div class="cart-empty-message" id="cart-empty">
+                    <p>Your basket is empty.</p>
+                    <a href="../shop/index.html" class="btn btn-primary" id="start-shopping-btn">Start Shopping</a>
+                </div>
+                <div id="cart-items-container"></div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display:none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal-val">$0.00</span>
+                </div>
+                <p style="font-size:0.8rem; margin-bottom:16px; opacity:0.7;">Shipping and taxes calculated at checkout.</p>
+                <button class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-Commerce Core Cart Logic -->
+    <script>
+        let cart = [];
+        
+        if (localStorage.getItem('gino_cart')) {
+            try {
+                cart = JSON.parse(localStorage.getItem('gino_cart'));
+            } catch (e) {
+                cart = [];
+            }
+        }
+
+        const cartOverlay = document.getElementById('cart-overlay');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartFooter = document.getElementById('cart-footer');
+        const cartSubtotalVal = document.getElementById('cart-subtotal-val');
+        const cartCountBadge = document.getElementById('cart-count');
+        const cartItemCountHeader = document.getElementById('cart-item-count');
+        
+        const startShoppingBtn = document.getElementById('start-shopping-btn');
+        if (startShoppingBtn) {
+            startShoppingBtn.addEventListener('click', () => {
+                cartOverlay.classList.remove('active');
+            });
+        }
+
+        function toggleCart() {
+            cartOverlay.classList.toggle('active');
+            renderCart();
+        }
+
+        openCartBtn.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) {
+                cartOverlay.classList.remove('active');
+            }
+        });
+
+        // Add to cart click
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const item = {
+                    id: btn.getAttribute('data-id'),
+                    name: btn.getAttribute('data-name'),
+                    price: parseFloat(btn.getAttribute('data-price')),
+                    img: btn.getAttribute('data-img'),
+                    pack: btn.getAttribute('data-pack'),
+                    qty: 1
+                };
+                
+                addToCart(item);
+                cartOverlay.classList.add('active');
+            });
+        });
+
+        function addToCart(newItem) {
+            const existingItem = cart.find(item => item.id === newItem.id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push(newItem);
+            }
+            saveCart();
+            renderCart();
+        }
+
+        function changeQty(id, amount) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += amount;
+                if (item.qty <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                saveCart();
+                renderCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('gino_cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            let totalItems = 0;
+            let subtotal = 0;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartFooter.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartFooter.style.display = 'block';
+                
+                cart.forEach(item => {
+                    totalItems += item.qty;
+                    subtotal += item.price * item.qty;
+                    
+                    const itemHtml = `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">${item.name}</h4>
+                                <div class="cart-item-pack">${item.pack}</div>
+                                <div class="cart-item-qty-price">
+                                    <div class="cart-qty-ctrl">
+                                        <button onclick="changeQty('${item.id}', -1)">-</button>
+                                        <span class="cart-qty-val">${item.qty}</span>
+                                        <button onclick="changeQty('${item.id}', 1)">+</button>
+                                    </div>
+                                    <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            
+            cartCountBadge.textContent = totalItems;
+            cartItemCountHeader.textContent = totalItems;
+            cartSubtotalVal.textContent = `$${subtotal.toFixed(2)}`;
+        }
+
+        renderCart();
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Checkout simulation: Gino USA checkout is disabled in this showcase.');
+        });
+
+        // FAQ accordion
+        function toggleFaq(faqItemElement) {
+            const isActive = faqItemElement.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                faqItemElement.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

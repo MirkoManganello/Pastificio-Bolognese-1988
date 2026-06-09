@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Bolognese Pasta, Handcrafted by Gino since 1988 | Gino USA</title>
+    <meta name="description" content="Handcrafted in Bologna, Italy. Experience authentic filled tortellini, premium egg pasta, and 90-second Ready Rounds shipped direct to your American kitchen.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>✨ BOLOGNA DIRECT TO YOU: Free shipping on orders over $50! <a href="shop/index.html">Shop Now</a></span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-gino">Gino <span class="font-script" style="font-size:2rem;color:var(--gold);vertical-align:middle;">USA</span></span>
+                <span class="logo-tag">Dal 1988 Bologna</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="shop/index.html" class="nav-link">Shop Pasta</a></li>
+                    <li><a href="story/index.html" class="nav-link">Gino's Story</a></li>
+                    <li><a href="subscription/index.html" class="nav-link">Pasta Club</a></li>
+                    <li><a href="recipes/index.html" class="nav-link">Recipes Hub</a></li>
+                    <li><a href="wholesale/index.html" class="nav-link">Wholesale</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="wholesale/index.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">B2B Portal</a>
+                <button class="icon-btn" id="open-cart-btn" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-basket-shopping fa-xl"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-subtitle">Bologna's Heritage. Gino's Craft. Your Kitchen.</h2>
+            <h1 class="hero-title">Real Tortellini from Bologna. Made by Gino since 1988.</h1>
+            <p class="hero-description">
+                For over three decades, we have rolled thin <em>sfoglia</em> egg dough in the heart of Bologna. Now, we ship our authentic, shelf-stable filled tortellini directly from our Florida warehouse to your kitchen table. No compromises. Just real Italian pasta.
+            </p>
+            <div class="hero-actions">
+                <a href="shop/index.html" class="btn btn-primary">Shop Gino's Pasta</a>
+                <a href="story/index.html" class="btn btn-secondary">Meet Gino</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="../wp-content/uploads/2026/05/DSC_5344-scaled-e1779989961829.jpg" alt="Gino rolling traditional pasta sfoglia egg dough in Bologna pastificio" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="social-proof-bar">
+        <div class="container social-proof-container">
+            <span class="social-proof-title">As Featured In:</span>
+            <div class="social-proof-logos">
+                <span style="font-family: var(--font-heading); font-weight:800; font-size:1.1rem; opacity:0.6;">NYTimes Cooking</span>
+                <span style="font-family: var(--font-heading); font-weight:700; font-style:italic; font-size:1.1rem; opacity:0.6;">Bon Appétit</span>
+                <span style="font-family: var(--font-heading); font-weight:900; font-size:1.1rem; opacity:0.6; letter-spacing:0.05em;">SAVEUR</span>
+            </div>
+            <span class="customer-counter">🇮🇹 Over 12,000 American Kitchens Cooked Since 2027</span>
+        </div>
+    </section>
+
+    <!-- Trust Strip B2B Validation -->
+    <section class="b2b-trust-strip">
+        <div class="container">
+            <p>The same master pasta makers trusted by <span class="highlight">Heinz UK</span>, <span class="highlight">EDEKA Germany</span>, and <span class="highlight">Lidl Europe</span>. Now direct to your kitchen.</p>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Shop the Gino Collection</h2>
+                <p class="section-subtitle">Crafted in small batches with D.O.P. ingredients and shipped fresh from our Florida warehouse.</p>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <span class="product-card-badge">Bestseller</span>
+                    <div class="product-card-image-wrapper">
+                        <img src="../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg" alt="Prosciutto di Parma and Parmigiano Reggiano Tortellini" class="product-card-image">
+                    </div>
+                    <div class="product-card-info">
+                        <h3 class="product-card-title">Artisanal Prosciutto Tortellini</h3>
+                        <p class="product-card-description">Classic Bolognese filled pasta packed with 24-month aged Parmigiano Reggiano and genuine Italian Prosciutto.</p>
+                        <div class="product-card-meta">
+                            <span class="product-card-price">$9.99</span>
+                            <span class="product-card-rating">
+                                <i class="fa-solid fa-star"></i> 4.9 (412 reviews)
+                            </span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="prosciutto-tortellini" 
+                                data-name="Artisanal Prosciutto Tortellini" 
+                                data-price="9.99" 
+                                data-img="../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg"
+                                data-pack="250g pack">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <span class="product-card-badge" style="background-color:var(--terracotta)">90s Prep</span>
+                    <div class="product-card-image-wrapper">
+                        <img src="../wp-content/uploads/2026/05/ready-rounds-premium-stuffed-pasta-bologna.jpg" alt="Ready Rounds Tomato and Cheese Cup Pasta" class="product-card-image">
+                    </div>
+                    <div class="product-card-info">
+                        <h3 class="product-card-title">Ready Rounds: Rosso Pomodoro</h3>
+                        <p class="product-card-description">Premium single-serve filled rounds with spicy tomato and scamorza. Ready in 90 seconds. No skill required.</p>
+                        <div class="product-card-meta">
+                            <span class="product-card-price">$5.49</span>
+                            <span class="product-card-rating">
+                                <i class="fa-solid fa-star"></i> 4.8 (198 reviews)
+                            </span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="ready-rounds-pomodoro" 
+                                data-name="Ready Rounds: Rosso Pomodoro" 
+                                data-price="5.49" 
+                                data-img="../wp-content/uploads/2026/05/ready-rounds-premium-stuffed-pasta-bologna.jpg"
+                                data-pack="Single Cup (120g)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <span class="product-card-badge" style="background-color:var(--gold)">Curated Box</span>
+                    <div class="product-card-image-wrapper">
+                        <img src="../wp-content/uploads/2026/05/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg" alt="Italian Four Cheese Ravioli" class="product-card-image">
+                    </div>
+                    <div class="product-card-info">
+                        <h3 class="product-card-title">Four Cheese Ravioli Box</h3>
+                        <p class="product-card-description">Four-pack box of classic stuffed ravioli. Mild Ricotta, sharp Pecorino, Scamorza and sweet Gorgonzola DOP.</p>
+                        <div class="product-card-meta">
+                            <span class="product-card-price">$34.99</span>
+                            <span class="product-card-rating">
+                                <i class="fa-solid fa-star"></i> 4.9 (245 reviews)
+                            </span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="four-cheese-box" 
+                                data-name="Four Cheese Ravioli Box" 
+                                data-price="34.99" 
+                                data-img="../wp-content/uploads/2026/05/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg"
+                                data-pack="4-Pack Gift Box">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <span class="product-card-badge" style="background-color:var(--olive)">Limited Edition</span>
+                    <div class="product-card-image-wrapper">
+                        <img src="../wp-content/uploads/2026/05/flavored-pasta-orecchiette-arcobaleno-rainbow.jpg" alt="Specialty Tricolore Rainbow Pasta" class="product-card-image">
+                    </div>
+                    <div class="product-card-info">
+                        <h3 class="product-card-title">Rainbow Orecchiette</h3>
+                        <p class="product-card-description">Traditional bronze-die dry pasta flavored naturally with spinach, beetroot, turmeric, and black carrot.</p>
+                        <div class="product-card-meta">
+                            <span class="product-card-price">$8.99</span>
+                            <span class="product-card-rating">
+                                <i class="fa-solid fa-star"></i> 5.0 (87 reviews)
+                            </span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="rainbow-orecchiette" 
+                                data-name="Rainbow Orecchiette" 
+                                data-price="8.99" 
+                                data-img="../wp-content/uploads/2026/05/flavored-pasta-orecchiette-arcobaleno-rainbow.jpg"
+                                data-pack="500g pack">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="shop/index.html" class="btn btn-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gino's Story Preview -->
+    <section class="section-padding story-preview-section">
+        <div class="container">
+            <div class="story-preview-grid">
+                <div>
+                    <img src="../wp-content/uploads/2026/06/maurizio-battipaglia-e1780992699103.jpg" alt="Gino in his pastificio checking the quality of dried tortellini shape" class="story-preview-img">
+                </div>
+                <div class="story-preview-text">
+                    <h2 class="font-script" style="color:var(--terracotta);">Gino's Story</h2>
+                    <h2 style="margin-top:-10px; font-size:2.2rem; line-height:1.2; margin-bottom:20px;">The Hands That Roll the Sfoglia</h2>
+                    <p>
+                        "I was born in Castenaso, right outside Bologna. In 1988, I decided that the machine-made pasta in supermarkets was losing the soul of the egg dough—the sfoglia. I opened a small shop, infusing the dough with eggs from local farms and filling my tortellini with real mortadella and 24-month Parmigiano. Today, our family pastificio works with the same uncompromising values."
+                    </p>
+                    <p>
+                        We crossed the Atlantic because real, authentic Bolognese pasta shouldn't be a luxury. We ship it straight to you, preserving the true taste of my home town.
+                    </p>
+                    <a href="story/index.html" class="btn btn-primary">Read Gino's Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shoppable Recipes Hub Carousel -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Gino's Shoppable Kitchen</h2>
+                <p class="section-subtitle">Click to explore our favorite Italian recipes and add the required Gino pasta directly to your basket.</p>
+            </div>
+            
+            <div class="recipe-grid">
+                <!-- Recipe 1 -->
+                <article class="recipe-card">
+                    <img src="../wp-content/uploads/2026/05/take-it-easy-quick-prep-pasta-14-minute-test.jpg" alt="Marry Me Chicken Tortellini plate" class="recipe-card-image">
+                    <div class="recipe-card-content">
+                        <span class="recipe-card-tag">Weeknight Easy</span>
+                        <h3 class="recipe-card-title">Marry Me Chicken Tortellini</h3>
+                        <p class="recipe-card-meta"><i class="fa-regular fa-clock"></i> 20 mins | <i class="fa-solid fa-gauge-simple"></i> Easy</p>
+                        <a href="recipes/index.html#marry-me-chicken" class="recipe-card-link">View Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Recipe 2 -->
+                <article class="recipe-card">
+                    <img src="../wp-content/uploads/2026/05/take-it-easy-quick-tortellini-pomodoro-scamorza-tomato.jpg" alt="Baked Bolognese Casserole dish" class="recipe-card-image">
+                    <div class="recipe-card-content">
+                        <span class="recipe-card-tag">Baked & Casserole</span>
+                        <h3 class="recipe-card-title">Baked Bolognese Tortellini</h3>
+                        <p class="recipe-card-meta"><i class="fa-regular fa-clock"></i> 35 mins | <i class="fa-solid fa-gauge-simple"></i> Easy</p>
+                        <a href="recipes/index.html#baked-bolognese" class="recipe-card-link">View Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Recipe 3 -->
+                <article class="recipe-card">
+                    <img src="../wp-content/uploads/2026/05/take-it-easy-quick-tortellini-cacio-pepe.jpg" alt="Tortellini in Brodo bowl" class="recipe-card-image">
+                    <div class="recipe-card-content">
+                        <span class="recipe-card-tag">Soup & Comfort</span>
+                        <h3 class="recipe-card-title">Gino's Tortellini in Brodo</h3>
+                        <p class="recipe-card-meta"><i class="fa-regular fa-clock"></i> 15 mins | <i class="fa-solid fa-gauge-simple"></i> Traditional</p>
+                        <a href="recipes/index.html#brodo" class="recipe-card-link">View Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Block -->
+    <section class="section-padding testimonials-section">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Tested in American Kitchens</h2>
+                <p class="section-subtitle">Real feedback from families who swapped store-brand pasta for Gino's Bolognese heritage.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-quote">
+                        "The sfoglia egg dough is paper-thin and carries so much flavor. Tastes exactly like the authentic trattorias we visited in Bologna. Having this in my pantry is a complete game-changer."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="../wp-content/uploads/2026/05/foto-giovanni-2-e1779383077147.png" alt="Giovanni customer avatar" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4>Giovanni C.</h4>
+                            <p>Seattle, WA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-quote">
+                        "Ready Rounds are a revolution for home office days. I get premium filled pasta that tastes homemade, ready in 90 seconds. No skill required. Simply incredible concept."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="../wp-content/uploads/2026/05/foto-mariagrazia-2-1-e1779383155885.png" alt="Maria customer avatar" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4>Maria R.</h4>
+                            <p>Boston, MA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-quote">
+                        "The Pasta of the Month club is our family's favorite delivery. Every month we receive unique varieties like the Tricolore and wild mushroom, along with Gino's hand-signed recipe cards."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="../wp-content/uploads/2026/05/foto-alessandra-2-e1779383131768.png" alt="Alexandra customer avatar" class="testimonial-avatar">
+                        <div class="testimonial-author-info">
+                            <h4>Alexandra M.</h4>
+                            <p>Miami, FL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Capture -->
+    <section class="section-padding newsletter-section">
+        <div class="container newsletter-container">
+            <h2 class="newsletter-title font-script">Join Gino's Table</h2>
+            <h2 style="margin-top:-15px; margin-bottom:16px; font-size:2.2rem; color:var(--white);">Get Weekly Recipes + 10% Off</h2>
+            <p class="newsletter-desc">Subscribe to receive Gino's personal family recipes, kitchen tips from Bologna, and exclusive discounts directly in your inbox.</p>
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" placeholder="Enter your email address" class="newsletter-input" required aria-label="Email Address">
+                <button type="submit" class="btn btn-primary" style="background-color: var(--charcoal); border-color:var(--charcoal)">Subscribe</button>
+            </form>
+            <div id="newsletter-success" style="display:none; margin-top:20px; font-weight:600; color:var(--cream-light)">
+                Grazie! Check your inbox for your 10% discount code.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Gino USA</h3>
+                <p>Authentic, shelf-stable stuffed tortellini and premium pasta direct from Bologna, Italy to American tables. Roll-out by hand, recipe from 1988.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Shop Gino</h4>
+                <ul class="footer-links">
+                    <li><a href="shop/index.html">All Pasta</a></li>
+                    <li><a href="shop/index.html#tortellini">Tortellini & Filled</a></li>
+                    <li><a href="product/ready-rounds/index.html">Ready Rounds (90s)</a></li>
+                    <li><a href="subscription/index.html">Pasta Club</a></li>
+                    <li><a href="shop/index.html#gift-boxes">Curated Gift Boxes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Gino USA Story</h4>
+                <ul class="footer-links">
+                    <li><a href="story/index.html">Meet Gino</a></li>
+                    <li><a href="story/index.html#pastificio">Our Bologna Pastificio</a></li>
+                    <li><a href="recipes/index.html">Recipe Hub</a></li>
+                    <li><a href="wholesale/index.html">Foodservice & Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refunds & Returns</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gino USA. All rights reserved.</p>
+            <p>Made in Bologna by <a href="../pastificio-home/" class="footer-backlink">Pastificio Bolognese S.p.A.</a></p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Cart (<span id="cart-item-count">0</span>)</h3>
+                <button class="close-cart" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-body" id="cart-body">
+                <!-- Cart items will be generated dynamically -->
+                <div class="cart-empty-message" id="cart-empty">
+                    <p>Your basket is empty.</p>
+                    <a href="shop/index.html" class="btn btn-primary" id="start-shopping-btn">Start Shopping</a>
+                </div>
+                <div id="cart-items-container"></div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display:none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal-val">$0.00</span>
+                </div>
+                <p style="font-size:0.8rem; margin-bottom:16px; opacity:0.7;">Shipping and taxes calculated at checkout.</p>
+                <button class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-Commerce Core Cart Logic -->
+    <script>
+        // Shopping Cart Implementation
+        let cart = [];
+        
+        // Load cart from localStorage
+        if (localStorage.getItem('gino_cart')) {
+            try {
+                cart = JSON.parse(localStorage.getItem('gino_cart'));
+            } catch (e) {
+                cart = [];
+            }
+        }
+
+        const cartOverlay = document.getElementById('cart-overlay');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartFooter = document.getElementById('cart-footer');
+        const cartSubtotalVal = document.getElementById('cart-subtotal-val');
+        const cartCountBadge = document.getElementById('cart-count');
+        const cartItemCountHeader = document.getElementById('cart-item-count');
+        
+        // Close cart if click start shopping
+        const startShoppingBtn = document.getElementById('start-shopping-btn');
+        if (startShoppingBtn) {
+            startShoppingBtn.addEventListener('click', () => {
+                cartOverlay.classList.remove('active');
+            });
+        }
+
+        function toggleCart() {
+            cartOverlay.classList.toggle('active');
+            renderCart();
+        }
+
+        openCartBtn.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) {
+                cartOverlay.classList.remove('active');
+            }
+        });
+
+        // Add to cart click
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const item = {
+                    id: btn.getAttribute('data-id'),
+                    name: btn.getAttribute('data-name'),
+                    price: parseFloat(btn.getAttribute('data-price')),
+                    img: btn.getAttribute('data-img'),
+                    pack: btn.getAttribute('data-pack'),
+                    qty: 1
+                };
+                
+                addToCart(item);
+                cartOverlay.classList.add('active'); // Open cart to show item added
+            });
+        });
+
+        function addToCart(newItem) {
+            const existingItem = cart.find(item => item.id === newItem.id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push(newItem);
+            }
+            saveCart();
+            renderCart();
+        }
+
+        function changeQty(id, amount) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += amount;
+                if (item.qty <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                saveCart();
+                renderCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('gino_cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            let totalItems = 0;
+            let subtotal = 0;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartFooter.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartFooter.style.display = 'block';
+                
+                cart.forEach(item => {
+                    totalItems += item.qty;
+                    subtotal += item.price * item.qty;
+                    
+                    const itemHtml = `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">${item.name}</h4>
+                                <div class="cart-item-pack">${item.pack}</div>
+                                <div class="cart-item-qty-price">
+                                    <div class="cart-qty-ctrl">
+                                        <button onclick="changeQty('${item.id}', -1)">-</button>
+                                        <span class="cart-qty-val">${item.qty}</span>
+                                        <button onclick="changeQty('${item.id}', 1)">+</button>
+                                    </div>
+                                    <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            
+            cartCountBadge.textContent = totalItems;
+            cartItemCountHeader.textContent = totalItems;
+            cartSubtotalVal.textContent = `$${subtotal.toFixed(2)}`;
+        }
+
+        // Initialize badges
+        renderCart();
+
+        // Checkout Alert
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Checkout simulation: Gino USA checkout is disabled in this showcase.');
+        });
+
+        // Newsletter subscription handling
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterSuccess = document.getElementById('newsletter-success');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                newsletterForm.style.display = 'none';
+                newsletterSuccess.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>

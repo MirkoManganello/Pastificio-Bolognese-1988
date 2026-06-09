@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisanal Prosciutto Tortellini | Gino USA</title>
+    <meta name="description" content="Shop our bestselling prosciutto filled tortellini. Made in Bologna, Italy with 24-month aged Parmigiano Reggiano D.O.P. and shipped from Florida.">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pdp-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            margin-top: 40px;
+            margin-bottom: 80px;
+        }
+        /* Gallery */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .main-image-viewport {
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+            background-color: var(--cream);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--cream-dark);
+        }
+        .main-image-viewport img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-thumbnails {
+            display: flex;
+            gap: 12px;
+        }
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            border: 2px solid transparent;
+            cursor: pointer;
+            background-color: var(--cream);
+        }
+        .thumbnail.active {
+            border-color: var(--terracotta);
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Product Details Info */
+        .product-meta-header {
+            border-bottom: 1px solid var(--cream-dark);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+        .product-tag {
+            color: var(--olive);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .product-title {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+        }
+        .stars-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+        .stars-row i {
+            color: var(--gold);
+        }
+        .stars-reviews-count {
+            color: rgba(42,42,42,0.6);
+        }
+        .pdp-description {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(42,42,42,0.85);
+            margin-bottom: 24px;
+        }
+        /* Stats Strip */
+        .prep-stats-strip {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--cream-dark);
+            padding-bottom: 24px;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .stat-icon {
+            color: var(--terracotta);
+            background-color: var(--cream);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--olive);
+            font-weight: 700;
+        }
+        .stat-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        /* Bundle Selector */
+        .bundle-section {
+            margin-bottom: 32px;
+        }
+        .bundle-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--olive);
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+        .bundle-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .bundle-option {
+            background-color: var(--white);
+            border: 2px solid var(--cream-dark);
+            border-radius: var(--border-radius-md);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .bundle-option:hover {
+            border-color: var(--cream-dark);
+            background-color: var(--cream-light);
+        }
+        .bundle-option.active {
+            border-color: var(--terracotta);
+            background-color: var(--cream-light);
+        }
+        .bundle-radio-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bundle-info h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .bundle-info p {
+            font-size: 0.8rem;
+            color: var(--olive);
+            font-weight: 600;
+        }
+        .bundle-price-details {
+            text-align: right;
+        }
+        .bundle-price {
+            font-size: 1.25rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+        .bundle-savings {
+            font-size: 0.75rem;
+            background-color: var(--olive);
+            color: var(--white);
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-weight: 700;
+            margin-top: 4px;
+            display: inline-block;
+        }
+        /* Badges */
+        .trust-badge-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .trust-badge-card {
+            background-color: var(--cream);
+            border-radius: var(--border-radius-sm);
+            padding: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--olive-dark);
+        }
+        .trust-badge-card i {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--terracotta);
+        }
+        /* Accordion */
+        .accordion-item {
+            border-top: 1px solid var(--cream-dark);
+            padding: 16px 0;
+        }
+        .accordion-item:last-child {
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .accordion-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--charcoal);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+        .accordion-content {
+            padding-top: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(42,42,42,0.75);
+            display: none;
+        }
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+        .accordion-item.active .accordion-trigger i {
+            transform: rotate(180deg);
+        }
+        /* Cross sell products */
+        .cross-sell-section {
+            background-color: var(--cream);
+            padding: 80px 0;
+            border-top: 1px solid var(--cream-dark);
+        }
+        @media(max-width: 992px) {
+            .pdp-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>✨ BOLOGNA DIRECT TO YOU: Free shipping on orders over $50! <a href="../../shop/index.html">Shop Now</a></span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="container header-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-gino">Gino <span class="font-script" style="font-size:2rem;color:var(--gold);vertical-align:middle;">USA</span></span>
+                <span class="logo-tag">Dal 1988 Bologna</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../../shop/index.html" class="nav-link">Shop Pasta</a></li>
+                    <li><a href="../../story/index.html" class="nav-link">Gino's Story</a></li>
+                    <li><a href="../../subscription/index.html" class="nav-link">Pasta Club</a></li>
+                    <li><a href="../../recipes/index.html" class="nav-link">Recipes Hub</a></li>
+                    <li><a href="../../wholesale/index.html" class="nav-link">Wholesale</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="../../wholesale/index.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">B2B Portal</a>
+                <button class="icon-btn" id="open-cart-btn" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-basket-shopping fa-xl"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PDP Main Container -->
+    <main class="container">
+        <div class="pdp-grid">
+            
+            <!-- Column 1: Image Gallery -->
+            <div class="gallery-container">
+                <div class="main-image-viewport">
+                    <img id="main-product-img" src="../../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg" alt="Artisanal Prosciutto Tortellini cooked on plate">
+                </div>
+                <div class="gallery-thumbnails">
+                    <div class="thumbnail active" onclick="changeImage(this, '../../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg')">
+                        <img src="../../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg" alt="Cooked prosciutto tortellini">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../../../wp-content/uploads/2026/05/DSC_5344-scaled-e1779989961829.jpg')">
+                        <img src="../../../wp-content/uploads/2026/05/DSC_5344-scaled-e1779989961829.jpg" alt="Rolling egg pasta sfoglia">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this, '../../../wp-content/uploads/2026/05/DSC_5280-scaled.jpg')">
+                        <img src="../../../wp-content/uploads/2026/05/DSC_5280-scaled.jpg" alt="Hand packaging of pasta box">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Column 2: Buy Section -->
+            <div class="buy-section-container">
+                <div class="product-meta-header">
+                    <span class="product-tag">Filled Pasta &bull; Shelf Stable</span>
+                    <h1 class="product-title">Artisanal Prosciutto Tortellini</h1>
+                    <div class="stars-row">
+                        <div class="rating-stars-gold">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="stars-reviews-count">4.9 / 5.0 (412 customer reviews)</span>
+                    </div>
+                </div>
+                
+                <p class="pdp-description">
+                    Hand-rolled egg sfoglia stuffed with authentic Prosciutto di Parma and 24-month aged Parmigiano Reggiano. Our shelf-stable curing process preserves original pastificio quality without preservatives. Perfectly shaped to lock in savory juices.
+                </p>
+                
+                <!-- Preparation Stats -->
+                <div class="prep-stats-strip">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fa-solid fa-fire-burner"></i></div>
+                        <div>
+                            <div class="stat-label">Cook Time</div>
+                            <div class="stat-value">3 Minutes</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fa-solid fa-kitchen-set"></i></div>
+                        <div>
+                            <div class="stat-label">Difficulty</div>
+                            <div class="stat-value">Very Easy</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bundle Selector -->
+                <div class="bundle-section">
+                    <h3 class="bundle-title">Select Package Option</h3>
+                    <div class="bundle-options">
+                        
+                        <!-- Option 1 -->
+                        <div class="bundle-option active" onclick="selectBundle(this, 'prosciutto-tortellini', 'Artisanal Prosciutto Tortellini (Single)', 9.99, '250g pack')">
+                            <div class="bundle-radio-wrapper">
+                                <input type="radio" name="bundle" checked style="accent-color:var(--terracotta);">
+                                <div class="bundle-info">
+                                    <h4>Single Pack</h4>
+                                    <p>250g &bull; Serves 2-3</p>
+                                </div>
+                            </div>
+                            <div class="bundle-price-details">
+                                <span class="bundle-price">$9.99</span>
+                            </div>
+                        </div>
+
+                        <!-- Option 2 -->
+                        <div class="bundle-option" onclick="selectBundle(this, 'prosciutto-tortellini-4', 'Artisanal Prosciutto Tortellini (4-Pack)', 35.96, '4-Pack Box (1kg)')">
+                            <div class="bundle-radio-wrapper">
+                                <input type="radio" name="bundle" style="accent-color:var(--terracotta);">
+                                <div class="bundle-info">
+                                    <h4>4-Pack Family Box</h4>
+                                    <p>1kg &bull; Perfect for Sunday dinner</p>
+                                </div>
+                            </div>
+                            <div class="bundle-price-details">
+                                <span class="bundle-price">$35.96</span>
+                                <span class="bundle-savings">Save 10%</span>
+                            </div>
+                        </div>
+
+                        <!-- Option 3 -->
+                        <div class="bundle-option" onclick="selectBundle(this, 'prosciutto-tortellini-6', 'Artisanal Prosciutto Tortellini (6-Pack)', 50.94, '6-Pack Case (1.5kg)')">
+                            <div class="bundle-radio-wrapper">
+                                <input type="radio" name="bundle" style="accent-color:var(--terracotta);">
+                                <div class="bundle-info">
+                                    <h4>6-Pack Pantry Stocker</h4>
+                                    <p>1.5kg &bull; Long-term storage ready</p>
+                                </div>
+                            </div>
+                            <div class="bundle-price-details">
+                                <span class="bundle-price">$50.94</span>
+                                <span class="bundle-savings">Save 15%</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Action Button -->
+                <button class="btn btn-primary add-to-cart-btn" id="pdp-add-btn" 
+                        data-id="prosciutto-tortellini" 
+                        data-name="Artisanal Prosciutto Tortellini" 
+                        data-price="9.99" 
+                        data-img="../../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg"
+                        data-pack="250g pack"
+                        style="width: 100%; padding: 18px 0; font-size:1.05rem;">
+                    Add Prosciutto Tortellini to Cart
+                </button>
+                
+                <!-- Trust Badges -->
+                <div class="trust-badge-row">
+                    <div class="trust-badge-card">
+                        <i class="fa-solid fa-house-chimney"></i>
+                        Made in Bologna
+                    </div>
+                    <div class="trust-badge-card">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        Florida Warehouse
+                    </div>
+                    <div class="trust-badge-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        BRC/IFS Certified
+                    </div>
+                </div>
+                
+                <!-- Product Details Accordion -->
+                <div>
+                    <div class="accordion-item active">
+                        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                            What's Inside & Ingredients <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p><strong>Ingredients:</strong> Durum Soft Wheat Semolina, Pasteurized Egg Yolk (20%), Pork Loin, Prosciutto di Parma D.O.P. (Pork Meat, Salt), Mortadella di Bologna IGP, Parmigiano Reggiano D.O.P. (Milk, Salt, Rennet), Breadcrumbs, Nutmeg, Salt.</p>
+                            <p style="margin-top: 8px;"><strong>Allergens:</strong> Wheat (gluten), Eggs, Dairy (milk). May contain traces of soy and mustard.</p>
+                            <p style="margin-top: 8px;"><strong>Certifications:</strong> Manufactured in an IFS and BRC Global Food safety certified plant in Villanova di Castenaso, Bologna.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                            Shipping & Warehouse Info <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>All orders are processed and packed at our central fulfillment warehouse in Jacksonville, Florida. Orders placed before 1:00 PM EST ship out the same business day.</p>
+                            <p style="margin-top: 8px;"><strong>Standard Delivery:</strong> 2-4 business days across the continental United States. Free delivery on orders over $50.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" onclick="toggleAccordion(this)">
+                            Suggested Recipes <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>We recommend pairing this prosciutto tortellini with:</p>
+                            <ul style="margin-left: 20px; margin-top: 8px; list-style-type:circle;">
+                                <li><strong>Marry Me Chicken Tortellini</strong> (garlic cream sauce, sundried tomato, spinach).</li>
+                                <li><strong>Traditional Brodo</strong> (boiled in rich capon/chicken broth with Parmigiano).</li>
+                                <li><strong>Baked Bolognese Tortellini</strong> (layered with thick ragù sauce and baked with scamorza cheese).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Cross Sell Section -->
+    <section class="cross-sell-section">
+        <div class="container">
+            <h2 style="font-size:2rem; margin-bottom:32px; text-align:center;">You May Also Like</h2>
+            <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1.2fr));">
+                
+                <article class="product-card">
+                    <span class="product-card-badge" style="background-color:var(--terracotta)">90s Prep</span>
+                    <div class="product-card-image-wrapper">
+                        <img src="../../../wp-content/uploads/2026/05/ready-rounds-premium-stuffed-pasta-bologna.jpg" alt="Ready Rounds Pomodoro" class="product-card-image">
+                    </div>
+                    <div class="product-card-info">
+                        <h3 class="product-card-title">Ready Rounds: Rosso Pomodoro</h3>
+                        <p class="product-card-description">Premium single-serve filled rounds with spicy tomato and scamorza. Ready in 90 seconds.</p>
+                        <div class="product-card-meta">
+                            <span class="product-card-price">$5.49</span>
+                            <span class="product-card-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="ready-rounds-pomodoro" 
+                                data-name="Ready Rounds: Rosso Pomodoro" 
+                                data-price="5.49" 
+                                data-img="../../../wp-content/uploads/2026/05/ready-rounds-premium-stuffed-pasta-bologna.jpg"
+                                data-pack="Single Cup (120g)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card-image-wrapper">
+                        <img src="../../../wp-content/uploads/2026/05/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg" alt="Four Cheese Ravioli" class="product-card-image">
+                    </div>
+                    <div class="product-card-info">
+                        <h3 class="product-card-title">Four Cheese Ravioli</h3>
+                        <p class="product-card-description">Classic stuffed ravioli. Ricotta, Pecorino, Scamorza and Sweet Gorgonzola DOP.</p>
+                        <div class="product-card-meta">
+                            <span class="product-card-price">$9.49</span>
+                            <span class="product-card-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="four-cheese-ravioli" 
+                                data-name="Four Cheese Ravioli" 
+                                data-price="9.49" 
+                                data-img="../../../wp-content/uploads/2026/05/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg"
+                                data-pack="250g pack">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-card-image-wrapper">
+                        <img src="../../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-tricolore-formaggio-cheese.jpg" alt="Tricolore Cheese Tortellini" class="product-card-image">
+                    </div>
+                    <div class="product-card-info">
+                        <h3 class="product-card-title">Tricolore Cheese Tortellini</h3>
+                        <p class="product-card-description">Tomato, spinach, and egg dough filled tortellini with a sweet ricotta cheese blend.</p>
+                        <div class="product-card-meta">
+                            <span class="product-card-price">$10.49</span>
+                            <span class="product-card-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-id="tricolore-tortellini" 
+                                data-name="Tricolore Cheese Tortellini" 
+                                data-price="10.49" 
+                                data-img="../../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-tricolore-formaggio-cheese.jpg"
+                                data-pack="250g pack">
+                            Add to Cart
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Gino USA</h3>
+                <p>Authentic, shelf-stable stuffed tortellini and premium pasta direct from Bologna, Italy to American tables. Roll-out by hand, recipe from 1988.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Shop Gino</h4>
+                <ul class="footer-links">
+                    <li><a href="../../shop/index.html">All Pasta</a></li>
+                    <li><a href="../../shop/index.html#tortellini">Tortellini & Filled</a></li>
+                    <li><a href="../ready-rounds/index.html">Ready Rounds (90s)</a></li>
+                    <li><a href="../../subscription/index.html">Pasta Club</a></li>
+                    <li><a href="../../shop/index.html#gift-boxes">Curated Gift Boxes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Gino USA Story</h4>
+                <ul class="footer-links">
+                    <li><a href="../../story/index.html">Meet Gino</a></li>
+                    <li><a href="../../story/index.html#pastificio">Our Bologna Pastificio</a></li>
+                    <li><a href="../../recipes/index.html">Recipe Hub</a></li>
+                    <li><a href="../../wholesale/index.html">Foodservice & Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refunds & Returns</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gino USA. All rights reserved.</p>
+            <p>Made in Bologna by <a href="../../../pastificio-home/" class="footer-backlink">Pastificio Bolognese S.p.A.</a></p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Cart (<span id="cart-item-count">0</span>)</h3>
+                <button class="close-cart" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-body" id="cart-body">
+                <div class="cart-empty-message" id="cart-empty">
+                    <p>Your basket is empty.</p>
+                    <a href="../../shop/index.html" class="btn btn-primary" id="start-shopping-btn">Start Shopping</a>
+                </div>
+                <div id="cart-items-container"></div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display:none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal-val">$0.00</span>
+                </div>
+                <p style="font-size:0.8rem; margin-bottom:16px; opacity:0.7;">Shipping and taxes calculated at checkout.</p>
+                <button class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-Commerce Core Cart Logic -->
+    <script>
+        let cart = [];
+        
+        if (localStorage.getItem('gino_cart')) {
+            try {
+                cart = JSON.parse(localStorage.getItem('gino_cart'));
+            } catch (e) {
+                cart = [];
+            }
+        }
+
+        const cartOverlay = document.getElementById('cart-overlay');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartFooter = document.getElementById('cart-footer');
+        const cartSubtotalVal = document.getElementById('cart-subtotal-val');
+        const cartCountBadge = document.getElementById('cart-count');
+        const cartItemCountHeader = document.getElementById('cart-item-count');
+        
+        const startShoppingBtn = document.getElementById('start-shopping-btn');
+        if (startShoppingBtn) {
+            startShoppingBtn.addEventListener('click', () => {
+                cartOverlay.classList.remove('active');
+            });
+        }
+
+        function toggleCart() {
+            cartOverlay.classList.toggle('active');
+            renderCart();
+        }
+
+        openCartBtn.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) {
+                cartOverlay.classList.remove('active');
+            }
+        });
+
+        // Add to cart click
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const item = {
+                    id: btn.getAttribute('data-id'),
+                    name: btn.getAttribute('data-name'),
+                    price: parseFloat(btn.getAttribute('data-price')),
+                    img: btn.getAttribute('data-img'),
+                    pack: btn.getAttribute('data-pack'),
+                    qty: 1
+                };
+                
+                addToCart(item);
+                cartOverlay.classList.add('active');
+            });
+        });
+
+        function addToCart(newItem) {
+            const existingItem = cart.find(item => item.id === newItem.id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push(newItem);
+            }
+            saveCart();
+            renderCart();
+        }
+
+        function changeQty(id, amount) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += amount;
+                if (item.qty <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                saveCart();
+                renderCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('gino_cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            let totalItems = 0;
+            let subtotal = 0;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartFooter.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartFooter.style.display = 'block';
+                
+                cart.forEach(item => {
+                    totalItems += item.qty;
+                    subtotal += item.price * item.qty;
+                    
+                    const itemHtml = `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">${item.name}</h4>
+                                <div class="cart-item-pack">${item.pack}</div>
+                                <div class="cart-item-qty-price">
+                                    <div class="cart-qty-ctrl">
+                                        <button onclick="changeQty('${item.id}', -1)">-</button>
+                                        <span class="cart-qty-val">${item.qty}</span>
+                                        <button onclick="changeQty('${item.id}', 1)">+</button>
+                                    </div>
+                                    <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            
+            cartCountBadge.textContent = totalItems;
+            cartItemCountHeader.textContent = totalItems;
+            cartSubtotalVal.textContent = `$${subtotal.toFixed(2)}`;
+        }
+
+        renderCart();
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Checkout simulation: Gino USA checkout is disabled in this showcase.');
+        });
+
+        // Image Selection Gallery logic
+        function changeImage(thumbnailElement, imageUrl) {
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnailElement.classList.add('active');
+            document.getElementById('main-product-img').src = imageUrl;
+        }
+
+        // Accordion functionality
+        function toggleAccordion(buttonElement) {
+            const accordionItem = buttonElement.parentElement;
+            const isActive = accordionItem.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If it wasn't active, open it
+            if (!isActive) {
+                accordionItem.classList.add('active');
+            }
+        }
+
+        // Bundle selector logic
+        function selectBundle(element, itemId, itemName, itemPrice, itemPack) {
+            document.querySelectorAll('.bundle-option').forEach(o => {
+                o.classList.remove('active');
+                o.querySelector('input[type="radio"]').checked = false;
+            });
+            
+            element.classList.add('active');
+            element.querySelector('input[type="radio"]').checked = true;
+            
+            // Update Add to Cart button attributes
+            const addBtn = document.getElementById('pdp-add-btn');
+            addBtn.setAttribute('data-id', itemId);
+            addBtn.setAttribute('data-name', itemName);
+            addBtn.setAttribute('data-price', itemPrice);
+            addBtn.setAttribute('data-pack', itemPack);
+            addBtn.textContent = `Add ${itemName} to Cart`;
+        }
+    </script>
+</body>
+</html>

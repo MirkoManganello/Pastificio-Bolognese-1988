@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Wholesale & Foodservice Solutions | Gino USA</title>
+    <meta name="description" content="Partner with Gino USA. Industrial-scale Italian stuffed pasta manufacturing, custom formulations, Ho.Re.Ca. supplies, and private label development.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .wholesale-hero {
+            background-color: var(--cream);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .wholesale-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 16px;
+        }
+        .wholesale-hero p {
+            font-size: 1.2rem;
+            color: var(--olive);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Two columns: Details & Form */
+        .wholesale-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        .wholesale-details h2 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            line-height: 1.25;
+        }
+        .wholesale-details p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(42,42,42,0.8);
+            margin-bottom: 24px;
+        }
+        .wholesale-features {
+            list-style: none;
+            margin-top: 32px;
+        }
+        .wholesale-features li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .wholesale-features h4 {
+            font-size: 1.15rem;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+        .wholesale-features p {
+            font-size: 0.9rem;
+            color: rgba(42,42,42,0.65);
+            margin-bottom: 0;
+        }
+        .wholesale-features-icon {
+            font-size: 1.35rem;
+            color: var(--terracotta);
+            background-color: var(--cream);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Form */
+        .form-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--cream-dark);
+            padding: 40px;
+            box-shadow: var(--box-shadow-md);
+        }
+        .form-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--olive);
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--cream-dark);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+        }
+        .form-control:focus {
+            outline: 2px solid var(--terracotta);
+        }
+        textarea.form-control {
+            height: 120px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>✨ BOLOGNA DIRECT TO YOU: Free shipping on orders over $50! <a href="../shop/index.html">Shop Now</a></span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-gino">Gino <span class="font-script" style="font-size:2rem;color:var(--gold);vertical-align:middle;">USA</span></span>
+                <span class="logo-tag">Dal 1988 Bologna</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../shop/index.html" class="nav-link">Shop Pasta</a></li>
+                    <li><a href="../story/index.html" class="nav-link">Gino's Story</a></li>
+                    <li><a href="../subscription/index.html" class="nav-link">Pasta Club</a></li>
+                    <li><a href="../recipes/index.html" class="nav-link">Recipes Hub</a></li>
+                    <li><a href="index.html" class="nav-link active">Wholesale</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">B2B Portal</a>
+                <button class="icon-btn" id="open-cart-btn" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-basket-shopping fa-xl"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Wholesale Hero -->
+    <section class="wholesale-hero">
+        <div class="container">
+            <h1 class="font-script" style="color:var(--terracotta);">Gino Foodservice</h1>
+            <h1>Wholesale & Custom Manufacturing</h1>
+            <p>Industrial scale capabilities meeting authentic Bolognese craftsmanship for US foodservice and retail distributors.</p>
+        </div>
+    </section>
+
+    <!-- Grid Details & Form -->
+    <section class="section-padding" style="background-color: var(--cream-light);">
+        <div class="container">
+            <div class="wholesale-grid">
+                
+                <!-- Column 1: Info -->
+                <div class="wholesale-details">
+                    <h2>Partner with Bologna's Premier Pasta Exporter</h2>
+                    <p>
+                        Whether you are an independent Italian gourmet grocer, an established Ho.Re.Ca group seeking authentic stuffed pasta, or a distributor looking to introduce premium shelf-stable options to your portfolio, Gino USA has the infrastructure to support you.
+                    </p>
+                    <p>
+                        Backbacked by our parent organization, **Società Alimentari Italiana (S.A.I. SpA)**, we offer unmatched manufacturing consistency, dedicated R&D services, custom private label formulations, and a reliable global supply network.
+                    </p>
+                    
+                    <ul class="wholesale-features">
+                        <li>
+                            <div class="wholesale-features-icon"><i class="fa-solid fa-kitchen-set"></i></div>
+                            <div>
+                                <h4>Ho.Re.Ca & Foodservice Volumes</h4>
+                                <p>Large-scale supply of traditional dry-stuffed tortellini and ravioli, packaged for restaurant kitchen speed and efficiency.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wholesale-features-icon"><i class="fa-solid fa-industry"></i></div>
+                            <div>
+                                <h4>Custom Recipe Formulations (R&D)</h4>
+                                <p>Our Castenaso R&D laboratory can test, standardize, and scale your proprietary custom fillings and flour blends.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="wholesale-features-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                            <div>
+                                <h4>BRC & IFS Certified Supply Chain</h4>
+                                <p>Uncompromising safety protocols. Fully traceble raw ingredients and continuous quality control under European standards.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Form -->
+                <div class="form-card">
+                    <h3>Request B2B Catalog & Pricing</h3>
+                    <p style="font-size:0.9rem; color:rgba(42,42,42,0.6); margin-bottom:24px;">Please complete the form below. Our corporate sales team will contact you with a feasibility report and custom quotation within 24-48 business hours.</p>
+                    
+                    <form id="wholesale-form">
+                        <div class="form-group">
+                            <label class="form-label" for="company-name">Company Name*</label>
+                            <input type="text" id="company-name" class="form-control" required placeholder="e.g. Italian Importers Inc.">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-name">Contact Person*</label>
+                            <input type="text" id="contact-name" class="form-control" required placeholder="e.g. John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Work Email*</label>
+                            <input type="email" id="email" class="form-control" required placeholder="e.g. buyer@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="business-type">Business Type*</label>
+                            <select id="business-type" class="form-control" required>
+                                <option value="" disabled selected>Select option</option>
+                                <option value="distributor">Distributor / Importer</option>
+                                <option value="restaurant">Restaurant / Ho.Re.Ca Group</option>
+                                <option value="retailer">Gourmet Retailer</option>
+                                <option value="private-label">Private Label Brand</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Project Scope & Estimated Annual Volumes*</label>
+                            <textarea id="message" class="form-control" required placeholder="Describe your product requirements, packaging needs, and estimated delivery schedule."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%; padding:14px 0;">Submit Inquiry</button>
+                    </form>
+                    
+                    <div id="form-success" style="display:none; text-align:center; padding:20px; border-radius:var(--border-radius-sm); background-color:var(--cream); color:var(--olive-dark); font-weight:600; margin-top:20px;">
+                        Grazie! Your B2B request has been sent to our sales coordinators.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Gino USA</h3>
+                <p>Authentic, shelf-stable stuffed tortellini and premium pasta direct from Bologna, Italy to American tables. Roll-out by hand, recipe from 1988.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Shop Gino</h4>
+                <ul class="footer-links">
+                    <li><a href="../shop/index.html">All Pasta</a></li>
+                    <li><a href="../shop/index.html#tortellini">Tortellini & Filled</a></li>
+                    <li><a href="../product/ready-rounds/index.html">Ready Rounds (90s)</a></li>
+                    <li><a href="../subscription/index.html">Pasta Club</a></li>
+                    <li><a href="../shop/index.html#gift-boxes">Curated Gift Boxes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Gino USA Story</h4>
+                <ul class="footer-links">
+                    <li><a href="../story/index.html">Meet Gino</a></li>
+                    <li><a href="../story/index.html#pastificio">Our Bologna Pastificio</a></li>
+                    <li><a href="../recipes/index.html">Recipe Hub</a></li>
+                    <li><a href="index.html">Foodservice & Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refunds & Returns</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gino USA. All rights reserved.</p>
+            <p>Made in Bologna by <a href="../../pastificio-home/" class="footer-backlink">Pastificio Bolognese S.p.A.</a></p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Cart (<span id="cart-item-count">0</span>)</h3>
+                <button class="close-cart" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-body" id="cart-body">
+                <div class="cart-empty-message" id="cart-empty">
+                    <p>Your basket is empty.</p>
+                    <a href="../shop/index.html" class="btn btn-primary" id="start-shopping-btn">Start Shopping</a>
+                </div>
+                <div id="cart-items-container"></div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display:none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal-val">$0.00</span>
+                </div>
+                <p style="font-size:0.8rem; margin-bottom:16px; opacity:0.7;">Shipping and taxes calculated at checkout.</p>
+                <button class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-Commerce Core Cart Logic -->
+    <script>
+        let cart = [];
+        
+        if (localStorage.getItem('gino_cart')) {
+            try {
+                cart = JSON.parse(localStorage.getItem('gino_cart'));
+            } catch (e) {
+                cart = [];
+            }
+        }
+
+        const cartOverlay = document.getElementById('cart-overlay');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartFooter = document.getElementById('cart-footer');
+        const cartSubtotalVal = document.getElementById('cart-subtotal-val');
+        const cartCountBadge = document.getElementById('cart-count');
+        const cartItemCountHeader = document.getElementById('cart-item-count');
+        
+        const startShoppingBtn = document.getElementById('start-shopping-btn');
+        if (startShoppingBtn) {
+            startShoppingBtn.addEventListener('click', () => {
+                cartOverlay.classList.remove('active');
+            });
+        }
+
+        function toggleCart() {
+            cartOverlay.classList.toggle('active');
+            renderCart();
+        }
+
+        openCartBtn.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) {
+                cartOverlay.classList.remove('active');
+            }
+        });
+
+        function changeQty(id, amount) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += amount;
+                if (item.qty <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                saveCart();
+                renderCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('gino_cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            let totalItems = 0;
+            let subtotal = 0;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartFooter.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartFooter.style.display = 'block';
+                
+                cart.forEach(item => {
+                    totalItems += item.qty;
+                    subtotal += item.price * item.qty;
+                    
+                    const itemHtml = `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">${item.name}</h4>
+                                <div class="cart-item-pack">${item.pack}</div>
+                                <div class="cart-item-qty-price">
+                                    <div class="cart-qty-ctrl">
+                                        <button onclick="changeQty('${item.id}', -1)">-</button>
+                                        <span class="cart-qty-val">${item.qty}</span>
+                                        <button onclick="changeQty('${item.id}', 1)">+</button>
+                                    </div>
+                                    <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            
+            cartCountBadge.textContent = totalItems;
+            cartItemCountHeader.textContent = totalItems;
+            cartSubtotalVal.textContent = `$${subtotal.toFixed(2)}`;
+        }
+
+        renderCart();
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Checkout simulation: Gino USA checkout is disabled in this showcase.');
+        });
+
+        // Form Submission handling
+        const wholesaleForm = document.getElementById('wholesale-form');
+        const formSuccess = document.getElementById('form-success');
+        
+        wholesaleForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            wholesaleForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

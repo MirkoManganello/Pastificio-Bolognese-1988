@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready Rounds: 90s Authentic Stuffed Pasta Cups | Gino USA</title>
+    <meta name="description" content="Discover Gino's Ready Rounds. Italian comfort in 90 seconds with no skill required. Perfect for office, WFH, and quick gourmet dinners.">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .rr-hero {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            border-bottom: 4px solid var(--terracotta);
+        }
+        .rr-hero-content {
+            padding-right: 40px;
+        }
+        .rr-badge {
+            background-color: var(--terracotta);
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .rr-hero-title {
+            font-size: 3.8rem;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+        .rr-hero-desc {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 36px;
+            color: rgba(42,42,42,0.8);
+        }
+        .rr-hero-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .rr-hero-image {
+            max-width: 90%;
+            height: auto;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Grid Section */
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .use-case-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-md);
+            padding: 32px;
+            border: 1px solid var(--cream-dark);
+            transition: var(--transition-smooth);
+            display: flex;
+            gap: 20px;
+        }
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-md);
+            border-color: var(--terracotta);
+        }
+        .use-case-icon {
+            font-size: 2rem;
+            color: var(--terracotta);
+            background-color: var(--cream);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .use-case-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+        .use-case-info p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(42,42,42,0.7);
+        }
+
+        /* Flavors Showcase */
+        .flavor-showcase {
+            background-color: var(--cream);
+            padding: 80px 0;
+        }
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .flavor-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-md);
+            padding: 24px;
+            border: 1px solid var(--cream-dark);
+            text-align: center;
+        }
+        .flavor-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid var(--cream-dark);
+        }
+        .flavor-title {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+        .flavor-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(42,42,42,0.7);
+            margin-bottom: 20px;
+            height: 70px;
+        }
+
+        /* Order Section */
+        .order-block-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+        .bundle-options {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .bundle-option {
+            background-color: var(--white);
+            border: 2px solid var(--cream-dark);
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .bundle-option.active {
+            border-color: var(--terracotta);
+            background-color: var(--cream-light);
+        }
+        .bundle-option h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .bundle-option p {
+            font-size: 0.85rem;
+            color: var(--olive);
+            font-weight: 600;
+        }
+        .bundle-price-col {
+            text-align: right;
+        }
+        .bundle-price {
+            font-size: 1.4rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+        .savings-tag {
+            background-color: var(--olive);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-top: 4px;
+            display: inline-block;
+        }
+
+        @media(max-width: 992px) {
+            .rr-hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .rr-hero-content {
+                padding-right: 0;
+            }
+            .rr-hero-title {
+                font-size: 2.8rem;
+            }
+            .order-block-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>✨ BOLOGNA DIRECT TO YOU: Free shipping on orders over $50! <a href="../../shop/index.html">Shop Now</a></span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="container header-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-gino">Gino <span class="font-script" style="font-size:2rem;color:var(--gold);vertical-align:middle;">USA</span></span>
+                <span class="logo-tag">Dal 1988 Bologna</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../../shop/index.html" class="nav-link">Shop Pasta</a></li>
+                    <li><a href="../../story/index.html" class="nav-link">Gino's Story</a></li>
+                    <li><a href="../../subscription/index.html" class="nav-link">Pasta Club</a></li>
+                    <li><a href="../../recipes/index.html" class="nav-link">Recipes Hub</a></li>
+                    <li><a href="../../wholesale/index.html" class="nav-link">Wholesale</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="../../wholesale/index.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">B2B Portal</a>
+                <button class="icon-btn" id="open-cart-btn" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-basket-shopping fa-xl"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="rr-hero">
+        <div class="container" style="display:contents;">
+            <div class="rr-hero-content" style="padding-left:24px;">
+                <span class="rr-badge">Revolution in Pasta</span>
+                <h1 class="rr-hero-title">Italian Comfort in 90 Seconds.</h1>
+                <p class="rr-hero-desc">
+                    Introducing Gino's **Ready Rounds**. Stuffed pasta shapes cured to perfection, nestled in premium dehydrated sauce or broth. Just add boiling water to the fill line, wait 90 seconds, and stir. Authentic Italian taste with zero skill required.
+                </p>
+                <a href="#order-now" class="btn btn-primary">Order Variety Pack</a>
+            </div>
+            <div class="rr-hero-image-container">
+                <img src="../../../wp-content/uploads/2026/04/ready-rounds-png-senza-sfondo-e1775584220690.png" alt="Ready Rounds pasta cup floating" class="rr-hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Case Grid -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Built for Busy Lifestyles</h2>
+                <p class="section-subtitle">Gino's Ready Rounds fit perfectly into every part of your week—no pots, no colanders, no stove required.</p>
+            </div>
+            
+            <div class="use-case-grid">
+                
+                <!-- Tile 1 -->
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="use-case-info">
+                        <h3>Office Desk Lunch</h3>
+                        <p>Ditch the sad cold sandwich or overpriced salad bowls. Elevate your corporate lunch with steaming hot Bolognese pasta in under 2 minutes.</p>
+                    </div>
+                </div>
+
+                <!-- Tile 2 -->
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-house-laptop"></i></div>
+                    <div class="use-case-info">
+                        <h3>WFH Quick Meal</h3>
+                        <p>When you have only 10 minutes between back-to-back video calls, Ready Rounds deliver a comforting, gourmet hot meal without the cleanup.</p>
+                    </div>
+                </div>
+
+                <!-- Tile 3 -->
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="use-case-info">
+                        <h3>Dorm Room Dinner</h3>
+                        <p>Finally, a delicious alternative to sodium-packed instant ramen. Real egg-pasta rounds and premium sauce made directly in your dorm.</p>
+                    </div>
+                </div>
+
+                <!-- Tile 4 -->
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-plane"></i></div>
+                    <div class="use-case-info">
+                        <h3>Travel Companion</h3>
+                        <p>Compact, sturdy packaging designed for travelers. Just ask the flight attendant or hotel lobby for hot water, and enjoy home-style Italian food.</p>
+                    </div>
+                </div>
+
+                <!-- Tile 5 -->
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="use-case-info">
+                        <h3>Late Night Snack</h3>
+                        <p>Craving savory carbs at midnight? Don't order greasy takeout. Satisfy your hunger with quick, authentic cheese stuffed pasta.</p>
+                    </div>
+                </div>
+
+                <!-- Tile 6 -->
+                <div class="use-case-card">
+                    <div class="use-case-icon"><i class="fa-solid fa-campground"></i></div>
+                    <div class="use-case-info">
+                        <h3>Outdoor & Camping</h3>
+                        <p>Bring artisanal Bolognese expertise into the wilderness. Ideal for hikers, campers, and RV enthusiasts who value weight and taste.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Flavors Showcase -->
+    <section class="flavor-showcase">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Explore the Flavors</h2>
+                <p class="section-subtitle">Three distinct recipes developed by Gino in Bologna, customized for single-serve cups.</p>
+            </div>
+            
+            <div class="flavor-grid">
+                
+                <!-- Card 1 -->
+                <div class="flavor-card">
+                    <img src="../../../wp-content/uploads/2026/05/ready-rounds-premium-stuffed-pasta-bologna.jpg" alt="Rosso Pomodoro" class="flavor-img">
+                    <h3 class="flavor-title">Rosso Pomodoro</h3>
+                    <p class="flavor-desc">Round stuffed shapes filled with a sweet cheese blend, swimming in a thick, fragrant San Marzano tomato and basil sauce.</p>
+                    <button class="btn btn-secondary add-to-cart-btn" 
+                            data-id="ready-rounds-pomodoro" 
+                            data-name="Ready Rounds: Rosso Pomodoro" 
+                            data-price="5.49" 
+                            data-img="../../../wp-content/uploads/2026/05/ready-rounds-premium-stuffed-pasta-bologna.jpg"
+                            data-pack="Single Cup (120g)">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flavor-card">
+                    <img src="../../../wp-content/uploads/2026/05/ready-rounds-tortellini-cup-caracalla-brodo-vegetable-broth-v2.jpg" alt="Caracalla Broth" class="flavor-img">
+                    <h3 class="flavor-title">Caracalla Broth</h3>
+                    <p class="flavor-desc">Mini stuffed tortellini served in a traditional golden vegetable and capon broth, infused with grated nutmeg and Parmigiano.</p>
+                    <button class="btn btn-secondary add-to-cart-btn" 
+                            data-id="ready-rounds-brodo" 
+                            data-name="Ready Rounds: Caracalla Broth" 
+                            data-price="5.49" 
+                            data-img="../../../wp-content/uploads/2026/05/ready-rounds-tortellini-cup-caracalla-brodo-vegetable-broth-v2.jpg"
+                            data-pack="Single Cup (120g)">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flavor-card">
+                    <img src="../../../wp-content/uploads/2026/05/ready-rounds-tortellini-cup-caesar-formaggio-cheese-v2.jpg" alt="Cheesy Caesar" class="flavor-img">
+                    <h3 class="flavor-title">Cheesy Caesar</h3>
+                    <p class="flavor-desc">Filled tortellini in a rich and creamy cheese sauce inspired by the classic Caesar salad notes, featuring black pepper and garlic.</p>
+                    <button class="btn btn-secondary add-to-cart-btn" 
+                            data-id="ready-rounds-caesar" 
+                            data-name="Ready Rounds: Cheesy Caesar" 
+                            data-price="5.49" 
+                            data-img="../../../wp-content/uploads/2026/05/ready-rounds-tortellini-cup-caesar-formaggio-cheese-v2.jpg"
+                            data-pack="Single Cup (120g)">
+                        Add to Cart
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Ordering Section -->
+    <section class="section-padding" id="order-now">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Stock Your Pantry</h2>
+                <p class="section-subtitle">Choose your quantity bundle. Free shipping on 12-pack and 24-pack options.</p>
+            </div>
+            
+            <div class="order-block-container">
+                <div class="bundle-options">
+                    
+                    <!-- Option 1 -->
+                    <div class="bundle-option active" onclick="selectBundle(this, 'rr-6-pack', 'Ready Rounds 6-Pack (Variety)', 32.94, '6-Pack Box')">
+                        <div>
+                            <h4>6-Pack Taster Box</h4>
+                            <p>Includes 2 of each delicious flavor</p>
+                        </div>
+                        <div class="bundle-price-col">
+                            <span class="bundle-price">$32.94</span>
+                        </div>
+                    </div>
+
+                    <!-- Option 2 -->
+                    <div class="bundle-option" onclick="selectBundle(this, 'rr-12-pack', 'Ready Rounds 12-Pack (Variety)', 59.29, '12-Pack Box')">
+                        <div>
+                            <h4>12-Pack Pantry Stocker</h4>
+                            <p>Includes 4 of each flavor &bull; Free Shipping</p>
+                        </div>
+                        <div class="bundle-price-col">
+                            <span class="bundle-price">$59.29</span>
+                            <span class="savings-tag">Save 10%</span>
+                        </div>
+                    </div>
+
+                    <!-- Option 3 -->
+                    <div class="bundle-option" onclick="selectBundle(this, 'rr-24-pack', 'Ready Rounds 24-Pack Subscription', 112.00, '24-Pack Box (Monthly)')">
+                        <div>
+                            <h4>24-Pack Monthly Subscription</h4>
+                            <p>Delivered every 30 days &bull; Skip or cancel anytime</p>
+                        </div>
+                        <div class="bundle-price-col">
+                            <span class="bundle-price">$112.00</span>
+                            <span class="savings-tag">Save 15% + VIP Ship</span>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div style="background-color:var(--white); padding:40px; border-radius:var(--border-radius-lg); border:1px solid var(--cream-dark); text-align:center;">
+                    <img src="../../../wp-content/uploads/2026/04/ready-rounds-png-senza-sfondo-e1775584220690.png" alt="Ready Rounds box" style="height:150px; margin-bottom:24px; filter:drop-shadow(0 10px 15px rgba(0,0,0,0.1))">
+                    <h3 id="pdp-bundle-title" style="font-size:1.5rem; margin-bottom:12px;">Ready Rounds 6-Pack (Variety)</h3>
+                    <p style="color:var(--olive); font-weight:700; margin-bottom:24px;">Gino's Best Seller</p>
+                    <button class="btn btn-primary add-to-cart-btn" id="rr-add-btn" 
+                            data-id="rr-6-pack" 
+                            data-name="Ready Rounds 6-Pack (Variety)" 
+                            data-price="32.94" 
+                            data-img="../../../wp-content/uploads/2026/04/ready-rounds-png-senza-sfondo-e1775584220690.png"
+                            data-pack="6-Pack Box"
+                            style="width:100%; padding:16px 0;">
+                        Add 6-Pack to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Gino USA</h3>
+                <p>Authentic, shelf-stable stuffed tortellini and premium pasta direct from Bologna, Italy to American tables. Roll-out by hand, recipe from 1988.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Shop Gino</h4>
+                <ul class="footer-links">
+                    <li><a href="../../shop/index.html">All Pasta</a></li>
+                    <li><a href="../../shop/index.html#tortellini">Tortellini & Filled</a></li>
+                    <li><a href="index.html">Ready Rounds (90s)</a></li>
+                    <li><a href="../../subscription/index.html">Pasta Club</a></li>
+                    <li><a href="../../shop/index.html#gift-boxes">Curated Gift Boxes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Gino USA Story</h4>
+                <ul class="footer-links">
+                    <li><a href="../../story/index.html">Meet Gino</a></li>
+                    <li><a href="../../story/index.html#pastificio">Our Bologna Pastificio</a></li>
+                    <li><a href="../../recipes/index.html">Recipe Hub</a></li>
+                    <li><a href="../../wholesale/index.html">Foodservice & Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refunds & Returns</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gino USA. All rights reserved.</p>
+            <p>Made in Bologna by <a href="../../../pastificio-home/" class="footer-backlink">Pastificio Bolognese S.p.A.</a></p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Cart (<span id="cart-item-count">0</span>)</h3>
+                <button class="close-cart" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-body" id="cart-body">
+                <div class="cart-empty-message" id="cart-empty">
+                    <p>Your basket is empty.</p>
+                    <a href="../../shop/index.html" class="btn btn-primary" id="start-shopping-btn">Start Shopping</a>
+                </div>
+                <div id="cart-items-container"></div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display:none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal-val">$0.00</span>
+                </div>
+                <p style="font-size:0.8rem; margin-bottom:16px; opacity:0.7;">Shipping and taxes calculated at checkout.</p>
+                <button class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-Commerce Core Cart Logic -->
+    <script>
+        let cart = [];
+        
+        if (localStorage.getItem('gino_cart')) {
+            try {
+                cart = JSON.parse(localStorage.getItem('gino_cart'));
+            } catch (e) {
+                cart = [];
+            }
+        }
+
+        const cartOverlay = document.getElementById('cart-overlay');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartFooter = document.getElementById('cart-footer');
+        const cartSubtotalVal = document.getElementById('cart-subtotal-val');
+        const cartCountBadge = document.getElementById('cart-count');
+        const cartItemCountHeader = document.getElementById('cart-item-count');
+        
+        const startShoppingBtn = document.getElementById('start-shopping-btn');
+        if (startShoppingBtn) {
+            startShoppingBtn.addEventListener('click', () => {
+                cartOverlay.classList.remove('active');
+            });
+        }
+
+        function toggleCart() {
+            cartOverlay.classList.toggle('active');
+            renderCart();
+        }
+
+        openCartBtn.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) {
+                cartOverlay.classList.remove('active');
+            }
+        });
+
+        // Add to cart click
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const item = {
+                    id: btn.getAttribute('data-id'),
+                    name: btn.getAttribute('data-name'),
+                    price: parseFloat(btn.getAttribute('data-price')),
+                    img: btn.getAttribute('data-img'),
+                    pack: btn.getAttribute('data-pack'),
+                    qty: 1
+                };
+                
+                addToCart(item);
+                cartOverlay.classList.add('active');
+            });
+        });
+
+        function addToCart(newItem) {
+            const existingItem = cart.find(item => item.id === newItem.id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push(newItem);
+            }
+            saveCart();
+            renderCart();
+        }
+
+        function changeQty(id, amount) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += amount;
+                if (item.qty <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                saveCart();
+                renderCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('gino_cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            let totalItems = 0;
+            let subtotal = 0;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartFooter.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartFooter.style.display = 'block';
+                
+                cart.forEach(item => {
+                    totalItems += item.qty;
+                    subtotal += item.price * item.qty;
+                    
+                    const itemHtml = `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">${item.name}</h4>
+                                <div class="cart-item-pack">${item.pack}</div>
+                                <div class="cart-item-qty-price">
+                                    <div class="cart-qty-ctrl">
+                                        <button onclick="changeQty('${item.id}', -1)">-</button>
+                                        <span class="cart-qty-val">${item.qty}</span>
+                                        <button onclick="changeQty('${item.id}', 1)">+</button>
+                                    </div>
+                                    <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            
+            cartCountBadge.textContent = totalItems;
+            cartItemCountHeader.textContent = totalItems;
+            cartSubtotalVal.textContent = `$${subtotal.toFixed(2)}`;
+        }
+
+        renderCart();
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Checkout simulation: Gino USA checkout is disabled in this showcase.');
+        });
+
+        // Bundle selection logic
+        function selectBundle(element, itemId, itemName, itemPrice, itemPack) {
+            document.querySelectorAll('.bundle-option').forEach(o => {
+                o.classList.remove('active');
+            });
+            
+            element.classList.add('active');
+            
+            // Update the display card details
+            document.getElementById('pdp-bundle-title').textContent = itemName;
+            
+            // Update Add to Cart button attributes
+            const addBtn = document.getElementById('rr-add-btn');
+            addBtn.setAttribute('data-id', itemId);
+            addBtn.setAttribute('data-name', itemName);
+            addBtn.setAttribute('data-price', itemPrice);
+            addBtn.setAttribute('data-pack', itemPack);
+            addBtn.textContent = `Add ${itemPack.split(' ')[0]} to Cart`;
+        }
+    </script>
+</body>
+</html>

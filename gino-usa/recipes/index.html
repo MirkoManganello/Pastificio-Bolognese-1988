@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gino's Shoppable Recipe Hub | Gino USA</title>
+    <meta name="description" content="Explore authentic Italian recipes by Gino. From Marry Me Chicken Tortellini to traditional Brodo. Shop the pasta ingredients in one click.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .recipes-header {
+            background-color: var(--cream);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .recipes-header h1 {
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+        .recipes-header p {
+            color: var(--olive);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .recipe-filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            padding-top: 40px;
+        }
+        .filter-tab {
+            padding: 10px 24px;
+            background-color: var(--white);
+            border: 1px solid var(--cream-dark);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            font-family: var(--font-body);
+        }
+        .filter-tab.active, .filter-tab:hover {
+            background-color: var(--terracotta);
+            color: var(--white);
+            border-color: var(--terracotta);
+        }
+        
+        /* Recipe Cards */
+        .recipe-card {
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        .recipe-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-md);
+            border-color: var(--terracotta);
+        }
+
+        /* Recipe Modal / Detail Overlay */
+        .recipe-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.6);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+        .recipe-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .recipe-modal {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: var(--border-radius-lg);
+            overflow-y: auto;
+            box-shadow: var(--box-shadow-md);
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--white);
+            border: 1px solid var(--cream-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            z-index: 10;
+        }
+        .recipe-modal-hero {
+            height: 350px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .recipe-modal-content {
+            padding: 40px;
+        }
+        .recipe-modal-meta {
+            display: flex;
+            gap: 24px;
+            color: var(--olive);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        .recipe-modal-title {
+            font-size: 2.8rem;
+            margin-bottom: 24px;
+        }
+        .recipe-modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+        }
+        /* Ingredients list with shoppable checks */
+        .ingredients-box h3, .directions-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--cream);
+            padding-bottom: 8px;
+        }
+        .ingredients-list {
+            list-style: none;
+        }
+        .ingredients-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        .ingredients-list input[type="checkbox"] {
+            margin-top: 4px;
+            accent-color: var(--terracotta);
+            width: 18px;
+            height: 18px;
+        }
+        .shoppable-tag {
+            background-color: var(--cream);
+            color: var(--terracotta);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 2px;
+            margin-left: 8px;
+            display: inline-block;
+        }
+        
+        /* Shoppable Widget Box */
+        .shoppable-widget {
+            background-color: var(--cream-light);
+            border: 2px dashed var(--terracotta);
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .shoppable-widget-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        .shoppable-widget-info p {
+            font-size: 0.8rem;
+            color: var(--olive);
+            font-weight: 600;
+        }
+        
+        /* Directions */
+        .direction-step {
+            margin-bottom: 24px;
+        }
+        .direction-step-header {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--terracotta);
+            margin-bottom: 8px;
+        }
+        .direction-step p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(42,42,42,0.8);
+        }
+
+        @media(max-width: 768px) {
+            .recipe-modal-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .recipe-modal-content {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span>✨ BOLOGNA DIRECT TO YOU: Free shipping on orders over $50! <a href="../shop/index.html">Shop Now</a></span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-gino">Gino <span class="font-script" style="font-size:2rem;color:var(--gold);vertical-align:middle;">USA</span></span>
+                <span class="logo-tag">Dal 1988 Bologna</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../shop/index.html" class="nav-link">Shop Pasta</a></li>
+                    <li><a href="../story/index.html" class="nav-link">Gino's Story</a></li>
+                    <li><a href="../subscription/index.html" class="nav-link">Pasta Club</a></li>
+                    <li><a href="index.html" class="nav-link active">Recipes Hub</a></li>
+                    <li><a href="../wholesale/index.html" class="nav-link">Wholesale</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="../wholesale/index.html" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">B2B Portal</a>
+                <button class="icon-btn" id="open-cart-btn" aria-label="Open Shopping Cart">
+                    <i class="fa-solid fa-basket-shopping fa-xl"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Recipes Header -->
+    <section class="recipes-header">
+        <div class="container">
+            <h1>Gino's Editorial Kitchen</h1>
+            <p>Traditional Bolognese pasta recipes scaled for the modern American cook.</p>
+        </div>
+    </section>
+
+    <!-- Hub Listing -->
+    <section class="section-padding" style="background-color: var(--cream-light);">
+        <div class="container">
+            
+            <!-- Filter tabs -->
+            <div class="recipe-filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Recipes</button>
+                <button class="filter-tab" data-filter="weeknight">Weeknight Easy</button>
+                <button class="filter-tab" data-filter="baked">Baked & Casserole</button>
+                <button class="filter-tab" data-filter="soup">Soup & Comfort</button>
+                <button class="filter-tab" data-filter="salad">Salad & Light</button>
+            </div>
+            
+            <!-- Grid list -->
+            <div class="recipe-grid" id="recipe-list-grid">
+                
+                <!-- Recipe Card 1 -->
+                <article class="recipe-card" data-category="weeknight" onclick="openRecipe('marry-me-chicken')">
+                    <img src="../../wp-content/uploads/2026/05/take-it-easy-quick-prep-pasta-14-minute-test.jpg" alt="Marry Me Chicken Tortellini" class="recipe-card-image">
+                    <div class="recipe-card-content">
+                        <span class="recipe-card-tag">Weeknight Easy</span>
+                        <h3 class="recipe-card-title">Marry Me Chicken Tortellini</h3>
+                        <p class="recipe-card-meta"><i class="fa-regular fa-clock"></i> 20 mins | <i class="fa-solid fa-gauge-simple"></i> Easy</p>
+                        <span class="recipe-card-link">Cook Recipe &rarr;</span>
+                    </div>
+                </article>
+
+                <!-- Recipe Card 2 -->
+                <article class="recipe-card" data-category="baked" onclick="openRecipe('baked-bolognese')">
+                    <img src="../../wp-content/uploads/2026/05/take-it-easy-quick-tortellini-pomodoro-scamorza-tomato.jpg" alt="Baked Bolognese Tortellini" class="recipe-card-image">
+                    <div class="recipe-card-content">
+                        <span class="recipe-card-tag">Baked & Casserole</span>
+                        <h3 class="recipe-card-title">Baked Bolognese Tortellini</h3>
+                        <p class="recipe-card-meta"><i class="fa-regular fa-clock"></i> 35 mins | <i class="fa-solid fa-gauge-simple"></i> Easy</p>
+                        <span class="recipe-card-link">Cook Recipe &rarr;</span>
+                    </div>
+                </article>
+
+                <!-- Recipe Card 3 -->
+                <article class="recipe-card" data-category="soup" onclick="openRecipe('brodo')">
+                    <img src="../../wp-content/uploads/2026/05/take-it-easy-quick-tortellini-cacio-pepe.jpg" alt="Gino's Tortellini in Brodo" class="recipe-card-image">
+                    <div class="recipe-card-content">
+                        <span class="recipe-card-tag">Soup & Comfort</span>
+                        <h3 class="recipe-card-title">Gino's Tortellini in Brodo</h3>
+                        <p class="recipe-card-meta"><i class="fa-regular fa-clock"></i> 15 mins | <i class="fa-solid fa-gauge-simple"></i> Traditional</p>
+                        <span class="recipe-card-link">Cook Recipe &rarr;</span>
+                    </div>
+                </article>
+
+                <!-- Recipe Card 4 -->
+                <article class="recipe-card" data-category="salad" onclick="openRecipe('gnocchi-salad')">
+                    <img src="../../wp-content/uploads/2026/05/classic-italian-pasta-gnocchi-patate-potato.jpg" alt="Summer Gnocchi Caprese Salad" class="recipe-card-image">
+                    <div class="recipe-card-content">
+                        <span class="recipe-card-tag">Salad & Light</span>
+                        <h3 class="recipe-card-title">Summer Gnocchi Caprese Salad</h3>
+                        <p class="recipe-card-meta"><i class="fa-regular fa-clock"></i> 15 mins | <i class="fa-solid fa-gauge-simple"></i> Easy</p>
+                        <span class="recipe-card-link">Cook Recipe &rarr;</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Detail Overlay for Recipes -->
+    <div class="recipe-modal-overlay" id="recipe-modal-overlay">
+        <div class="recipe-modal">
+            <button class="close-modal" id="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="" class="recipe-modal-hero" id="recipe-detail-hero">
+            
+            <div class="recipe-modal-content">
+                <div class="recipe-modal-meta">
+                    <span id="recipe-detail-category">Category</span>
+                    <span>&bull;</span>
+                    <span id="recipe-detail-time">Time</span>
+                    <span>&bull;</span>
+                    <span id="recipe-detail-difficulty">Difficulty</span>
+                </div>
+                <h2 class="recipe-modal-title" id="recipe-detail-title">Recipe Title</h2>
+                
+                <div class="recipe-modal-grid">
+                    <!-- Ingredients Box -->
+                    <div class="ingredients-box">
+                        <h3>Ingredients</h3>
+                        <ul class="ingredients-list" id="recipe-detail-ingredients">
+                            <!-- Injected dynamically -->
+                        </ul>
+                        
+                        <!-- Shoppable CTA Widget -->
+                        <div class="shoppable-widget" id="shoppable-widget">
+                            <div class="shoppable-widget-info">
+                                <h4 id="shoppable-product-name">Product Name</h4>
+                                <p id="shoppable-product-pack">Pack size</p>
+                            </div>
+                            <button class="btn btn-primary add-to-cart-btn" id="shoppable-add-btn" data-id="" data-name="" data-price="" data-img="" data-pack="">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Directions Box -->
+                    <div class="directions-box">
+                        <h3>Step-by-Step Directions</h3>
+                        <div id="recipe-detail-directions">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Gino USA</h3>
+                <p>Authentic, shelf-stable stuffed tortellini and premium pasta direct from Bologna, Italy to American tables. Roll-out by hand, recipe from 1988.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Shop Gino</h4>
+                <ul class="footer-links">
+                    <li><a href="../shop/index.html">All Pasta</a></li>
+                    <li><a href="../shop/index.html#tortellini">Tortellini & Filled</a></li>
+                    <li><a href="../product/ready-rounds/index.html">Ready Rounds (90s)</a></li>
+                    <li><a href="../subscription/index.html">Pasta Club</a></li>
+                    <li><a href="../shop/index.html#gift-boxes">Curated Gift Boxes</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="footer-heading">Gino USA Story</h4>
+                <ul class="footer-links">
+                    <li><a href="../story/index.html">Meet Gino</a></li>
+                    <li><a href="../story/index.html#pastificio">Our Bologna Pastificio</a></li>
+                    <li><a href="index.html">Recipe Hub</a></li>
+                    <li><a href="../wholesale/index.html">Foodservice & Wholesale</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Customer Care</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Refunds & Returns</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Gino USA. All rights reserved.</p>
+            <p>Made in Bologna by <a href="../../pastificio-home/" class="footer-backlink">Pastificio Bolognese S.p.A.</a></p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h3>Your Cart (<span id="cart-item-count">0</span>)</h3>
+                <button class="close-cart" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-body" id="cart-body">
+                <div class="cart-empty-message" id="cart-empty">
+                    <p>Your basket is empty.</p>
+                    <a href="../shop/index.html" class="btn btn-primary" id="start-shopping-btn">Start Shopping</a>
+                </div>
+                <div id="cart-items-container"></div>
+            </div>
+            <div class="cart-footer" id="cart-footer" style="display:none;">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal-val">$0.00</span>
+                </div>
+                <p style="font-size:0.8rem; margin-bottom:16px; opacity:0.7;">Shipping and taxes calculated at checkout.</p>
+                <button class="btn btn-primary cart-checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-Commerce Core Cart Logic -->
+    <script>
+        let cart = [];
+        
+        if (localStorage.getItem('gino_cart')) {
+            try {
+                cart = JSON.parse(localStorage.getItem('gino_cart'));
+            } catch (e) {
+                cart = [];
+            }
+        }
+
+        const cartOverlay = document.getElementById('cart-overlay');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartFooter = document.getElementById('cart-footer');
+        const cartSubtotalVal = document.getElementById('cart-subtotal-val');
+        const cartCountBadge = document.getElementById('cart-count');
+        const cartItemCountHeader = document.getElementById('cart-item-count');
+        
+        const startShoppingBtn = document.getElementById('start-shopping-btn');
+        if (startShoppingBtn) {
+            startShoppingBtn.addEventListener('click', () => {
+                cartOverlay.classList.remove('active');
+            });
+        }
+
+        function toggleCart() {
+            cartOverlay.classList.toggle('active');
+            renderCart();
+        }
+
+        openCartBtn.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        cartOverlay.addEventListener('click', (e) => {
+            if (e.target === cartOverlay) {
+                cartOverlay.classList.remove('active');
+            }
+        });
+
+        // Add to cart click function
+        function bindAddToCartClick() {
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                // Remove existing listeners by cloning
+                const newBtn = btn.cloneNode(true);
+                btn.parentNode.replaceChild(newBtn, btn);
+                
+                newBtn.addEventListener('click', (e) => {
+                    const item = {
+                        id: newBtn.getAttribute('data-id'),
+                        name: newBtn.getAttribute('data-name'),
+                        price: parseFloat(newBtn.getAttribute('data-price')),
+                        img: newBtn.getAttribute('data-img'),
+                        pack: newBtn.getAttribute('data-pack'),
+                        qty: 1
+                    };
+                    
+                    addToCart(item);
+                    cartOverlay.classList.add('active');
+                });
+            });
+        }
+
+        function addToCart(newItem) {
+            const existingItem = cart.find(item => item.id === newItem.id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push(newItem);
+            }
+            saveCart();
+            renderCart();
+        }
+
+        function changeQty(id, amount) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.qty += amount;
+                if (item.qty <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                saveCart();
+                renderCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('gino_cart', JSON.stringify(cart));
+        }
+
+        function renderCart() {
+            let totalItems = 0;
+            let subtotal = 0;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartFooter.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartFooter.style.display = 'block';
+                
+                cart.forEach(item => {
+                    totalItems += item.qty;
+                    subtotal += item.price * item.qty;
+                    
+                    const itemHtml = `
+                        <div class="cart-item">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <div class="cart-item-details">
+                                <h4 class="cart-item-title">${item.name}</h4>
+                                <div class="cart-item-pack">${item.pack}</div>
+                                <div class="cart-item-qty-price">
+                                    <div class="cart-qty-ctrl">
+                                        <button onclick="changeQty('${item.id}', -1)">-</button>
+                                        <span class="cart-qty-val">${item.qty}</span>
+                                        <button onclick="changeQty('${item.id}', 1)">+</button>
+                                    </div>
+                                    <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            }
+            
+            cartCountBadge.textContent = totalItems;
+            cartItemCountHeader.textContent = totalItems;
+            cartSubtotalVal.textContent = `$${subtotal.toFixed(2)}`;
+        }
+
+        renderCart();
+        bindAddToCartClick();
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Checkout simulation: Gino USA checkout is disabled in this showcase.');
+        });
+
+        // Filter tags logic
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const recipeCards = document.querySelectorAll('.recipe-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.getAttribute('data-filter');
+
+                recipeCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (filter === 'all' || cardCategory === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Recipe data mapping
+        const recipesData = {
+            'marry-me-chicken': {
+                title: "Marry Me Chicken Tortellini",
+                category: "Weeknight Easy",
+                time: "20 mins",
+                difficulty: "Easy",
+                img: "../../wp-content/uploads/2026/05/take-it-easy-quick-prep-pasta-14-minute-test.jpg",
+                ingredients: [
+                    "2 packages of <strong>Gino's Artisanal Prosciutto Tortellini</strong> <span class='shoppable-tag'>Gino Product</span>",
+                    "2 large chicken breasts, sliced thin",
+                    "2 tbsp olive oil & 2 tbsp butter",
+                    "3 garlic cloves, minced",
+                    "1/2 cup chicken broth",
+                    "1/2 cup heavy cream",
+                    "1/2 cup sundried tomatoes, chopped",
+                    "2 cups fresh baby spinach leaves",
+                    "1/2 cup freshly grated Parmigiano Reggiano"
+                ],
+                directions: [
+                    { step: "Step 1: Sear the Chicken", text: "Heat olive oil and butter in a large skillet. Season chicken breasts with salt and pepper, and sear on both sides until golden. Remove chicken and set aside." },
+                    { step: "Step 2: Build the Sauce", text: "In the same skillet, sauté garlic, sundried tomatoes, and oregano for 1 minute. Pour in the heavy cream and chicken broth, bringing to a simmer. Add grated Parmigiano and let the sauce thicken slightly." },
+                    { step: "Step 3: Cook the Pasta", text: "Bring a large pot of salted water to boil. Add Gino's Prosciutto Tortellini and cook for exactly 3 minutes. Drain, reserving 1/4 cup of pasta water." },
+                    { step: "Step 4: Combine & Serve", text: "Toss the drained tortellini and spinach into the cream sauce. Slice the chicken and return it to the skillet. Cook for 2 minutes until spinach is wilted. Garnish with basil and Parmigiano." }
+                ],
+                shoppableProduct: {
+                    id: "prosciutto-tortellini",
+                    name: "Artisanal Prosciutto Tortellini",
+                    price: "9.99",
+                    img: "../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg",
+                    pack: "250g pack"
+                }
+            },
+            'baked-bolognese': {
+                title: "Baked Bolognese Tortellini",
+                category: "Baked & Casserole",
+                time: "35 mins",
+                difficulty: "Easy",
+                img: "../../wp-content/uploads/2026/05/take-it-easy-quick-tortellini-pomodoro-scamorza-tomato.jpg",
+                ingredients: [
+                    "2 packages of <strong>Gino's Tricolore Cheese Tortellini</strong> <span class='shoppable-tag'>Gino Product</span>",
+                    "1 lb Bolognese Ragù meat sauce (beef, pork, sofrito blend)",
+                    "1 cup Scamorza or Mozzarella cheese, shredded",
+                    "1/4 cup Parmigiano Reggiano, grated",
+                    "Fresh basil leaves for garnish"
+                ],
+                directions: [
+                    { step: "Step 1: Prep Oven & Sauce", text: "Preheat your oven to 375°F (190°C). Warm your Bolognese meat sauce in a saucepan over low heat." },
+                    { step: "Step 2: Parboil Tortellini", text: "Boil Gino's Tricolore Cheese Tortellini in salted water for only 2 minutes (it will finish cooking in the oven). Drain." },
+                    { step: "Step 3: Layer the Casserole", text: "In a baking dish, mix the tortellini with the warm Bolognese sauce. Top with shredded Scamorza cheese and grated Parmigiano." },
+                    { step: "Step 4: Bake to Golden Bubble", text: "Bake in the oven for 15-20 minutes until the cheese is completely melted, bubbly, and slightly golden on top. Garnish with basil and serve." }
+                ],
+                shoppableProduct: {
+                    id: "tricolore-tortellini",
+                    name: "Tricolore Cheese Tortellini",
+                    price: "10.49",
+                    img: "../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-tricolore-formaggio-cheese.jpg",
+                    pack: "250g pack"
+                }
+            },
+            'brodo': {
+                title: "Gino's Tortellini in Brodo",
+                category: "Soup & Comfort",
+                time: "15 mins",
+                difficulty: "Traditional",
+                img: "../../wp-content/uploads/2026/05/take-it-easy-quick-tortellini-cacio-pepe.jpg",
+                ingredients: [
+                    "2 packages of <strong>Gino's Artisanal Prosciutto Tortellini</strong> <span class='shoppable-tag'>Gino Product</span>",
+                    "6 cups rich capon or free-range chicken bone broth",
+                    "Freshly grated Parmigiano Reggiano D.O.P.",
+                    "A pinch of freshly grated nutmeg"
+                ],
+                directions: [
+                    { step: "Step 1: Prepare the Broth", text: "Pour high-quality capon or chicken bone broth into a deep pot. Bring to a rolling boil. Add a pinch of nutmeg to infuse." },
+                    { step: "Step 2: Cook the Tortellini", text: "Add Gino's Prosciutto Tortellini directly into the boiling broth. Reduce heat slightly to a medium boil and cook for exactly 3 minutes." },
+                    { step: "Step 3: Serve Hot", text: "Ladle the hot broth and tortellini into shallow bowls. Top generously with grated Parmigiano Reggiano. This is the absolute classic comfort dish of Bologna." }
+                ],
+                shoppableProduct: {
+                    id: "prosciutto-tortellini",
+                    name: "Artisanal Prosciutto Tortellini",
+                    price: "9.99",
+                    img: "../../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg",
+                    pack: "250g pack"
+                }
+            },
+            'gnocchi-salad': {
+                title: "Summer Gnocchi Caprese Salad",
+                category: "Salad & Light",
+                time: "15 mins",
+                difficulty: "Easy",
+                img: "../../wp-content/uploads/2026/05/classic-italian-pasta-gnocchi-patate-potato.jpg",
+                ingredients: [
+                    "1 package of <strong>Gino's Classic Potato Gnocchi</strong> <span class='shoppable-tag'>Gino Product</span>",
+                    "1 cup cherry tomatoes, halved",
+                    "1 cup fresh Mozzarella pearls",
+                    "1/2 cup basil pesto sauce",
+                    "2 tbsp pine nuts, toasted",
+                    "Fresh arugula leaves & balsamic glaze"
+                ],
+                directions: [
+                    { step: "Step 1: Pan-Sear Gnocchi", text: "Boil Gino's Potato Gnocchi in salted water for 1 minute until they float. Drain, then toss in a skillet with 2 tbsp of hot olive oil, searing until crispy on the edges." },
+                    { step: "Step 2: Toss Salad Ingredients", text: "In a large bowl, mix the pan-seared gnocchi with cherry tomatoes, mozzarella pearls, arugula, and basil pesto." },
+                    { step: "Step 3: Garnish and Drizzle", text: "Plate the salad, garnish with toasted pine nuts, and drizzle with a thick balsamic reduction glaze before serving cold or warm." }
+                ],
+                shoppableProduct: {
+                    id: "potato-gnocchi",
+                    name: "Classic Potato Gnocchi",
+                    price: "7.99",
+                    img: "../../wp-content/uploads/2026/05/classic-italian-pasta-gnocchi-patate-potato.jpg",
+                    pack: "500g pack"
+                }
+            }
+        };
+
+        const modalOverlay = document.getElementById('recipe-modal-overlay');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        
+        function openRecipe(id) {
+            const data = recipesData[id];
+            if (!data) return;
+            
+            document.getElementById('recipe-detail-hero').src = data.img;
+            document.getElementById('recipe-detail-hero').alt = data.title;
+            document.getElementById('recipe-detail-category').textContent = data.category;
+            document.getElementById('recipe-detail-time').innerHTML = `<i class="fa-regular fa-clock"></i> ${data.time}`;
+            document.getElementById('recipe-detail-difficulty').innerHTML = `<i class="fa-solid fa-gauge-simple"></i> ${data.difficulty}`;
+            document.getElementById('recipe-detail-title').textContent = data.title;
+            
+            // Build ingredients checklist
+            const ingredientsContainer = document.getElementById('recipe-detail-ingredients');
+            ingredientsContainer.innerHTML = '';
+            data.ingredients.forEach(ing => {
+                const li = `
+                    <li>
+                        <input type="checkbox">
+                        <span>${ing}</span>
+                    </li>
+                `;
+                ingredientsContainer.insertAdjacentHTML('beforeend', li);
+            });
+            
+            // Build directions list
+            const directionsContainer = document.getElementById('recipe-detail-directions');
+            directionsContainer.innerHTML = '';
+            data.directions.forEach(dir => {
+                const step = `
+                    <div class="direction-step">
+                        <div class="direction-step-header">${dir.step}</div>
+                        <p>${dir.text}</p>
+                    </div>
+                `;
+                directionsContainer.insertAdjacentHTML('beforeend', step);
+            });
+            
+            // Build shoppable widget
+            const prod = data.shoppableProduct;
+            document.getElementById('shoppable-product-name').textContent = prod.name;
+            document.getElementById('shoppable-product-pack').textContent = prod.pack;
+            
+            const addBtn = document.getElementById('shoppable-add-btn');
+            addBtn.setAttribute('data-id', prod.id);
+            addBtn.setAttribute('data-name', prod.name);
+            addBtn.setAttribute('data-price', prod.price);
+            addBtn.setAttribute('data-img', prod.img);
+            addBtn.setAttribute('data-pack', prod.pack);
+            addBtn.textContent = `Add to Cart - $${prod.price}`;
+            
+            modalOverlay.classList.add('active');
+            bindAddToCartClick(); // Rebind events for cloned nodes
+        }
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+        
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        // Trigger recipe open if hash is present
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && recipesData[hash]) {
+                openRecipe(hash);
+            }
+        });
+    </script>
+</body>
+</html>
