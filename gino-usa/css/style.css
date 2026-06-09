@@ -536,6 +536,17 @@ a {
     object-fit: cover;
 }
 
+.testimonial-avatar.initials {
+    background-color: var(--terracotta);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.15rem;
+    font-family: var(--font-body);
+}
+
 .testimonial-author-info h4 {
     font-size: 1rem;
     color: var(--charcoal);
