@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse our complete assortment of authentic Bolognese stuffed pasta, ready rounds cups, quick kits, egg pasta nests, and potato gnocchi.">
-  <title>Pastificio Products - Pastificio Bolognese</title>
-  <link rel="icon" type="image/png" href="assets/img/cropped-favit-32x32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/img/cropped-favit-192x192.png">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="description" content="Sfoglia il nostro assortimento completo di autentica pasta ripiena bolognese, tazze Ready Rounds, kit veloci, nidi di pasta all'uovo e gnocchi di patate.">
+  <title>Prodotti del Pastificio - Pastificio Bolognese</title>
+  <link rel="icon" type="image/png" href="../assets/img/cropped-favit-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/img/cropped-favit-192x192.png">
+  <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
 
@@ -15,16 +15,16 @@
   <header class="header" id="header">
     <div class="container header__container">
       <a href="index.html" class="logo" id="header-logo-link">
-        <img src="assets/img/Nero-Rosso-Moderno-Vino-Logo.gif" alt="Pastificio Bolognese Logo" id="logo-img">
+        <img src="../assets/img/Nero-Rosso-Moderno-Vino-Logo.gif" alt="Logo Pastificio Bolognese" id="logo-img">
       </a>
-      
+
       <nav class="nav" id="main-nav">
         <ul class="nav__list">
           <li><a href="index.html" class="nav__link" id="nav-home">Home</a></li>
-          <li><a href="products.html" class="nav__link nav__link--active" id="nav-products">Products</a></li>
+          <li><a href="products.html" class="nav__link nav__link--active" id="nav-products">Prodotti</a></li>
           <li><a href="private-label.html" class="nav__link" id="nav-private-label">Private Label</a></li>
-          <li><a href="company.html" class="nav__link" id="nav-company">Company</a></li>
-          <li><a href="contact.html" class="nav__link" id="nav-contact">Contact Us</a></li>
+          <li><a href="company.html" class="nav__link" id="nav-company">Azienda</a></li>
+          <li><a href="contact.html" class="nav__link" id="nav-contact">Contatti</a></li>
           <li><a href="blog.html" class="nav__link" id="nav-blog">Blog</a></li>
         </ul>
 
@@ -35,17 +35,17 @@
         </div>
 
         <div class="lang-switcher" id="language-switcher">
-          <button class="lang-toggle" id="lang-menu-btn">
-            en <span class="btn-arrow">▾</span>
+          <button class="lang-toggle" id="lang-menu-btn" aria-label="Cambia Lingua">
+            it <span class="btn-arrow">▾</span>
           </button>
           <div class="lang-dropdown" id="lang-dropdown-menu">
-            <a href="#" class="lang-dropdown__link" data-lang="en">English</a>
-            <a href="#" class="lang-dropdown__link" data-lang="it">Italiano</a>
+            <a href="#" class="lang-dropdown__link" data-lang="en" id="lang-opt-en">English</a>
+            <a href="#" class="lang-dropdown__link" data-lang="it" id="lang-opt-it">Italiano</a>
           </div>
         </div>
       </nav>
-      
-      <button class="burger" id="burger-menu-btn" aria-label="Toggle Navigation Menu">
+
+      <button class="burger" id="burger-menu-btn" aria-label="Attiva Menu di Navigazione">
         <span></span>
         <span></span>
         <span></span>
@@ -56,24 +56,24 @@
   <!-- Products Hero Section -->
   <section class="section section-bg-light" style="margin-top: 80px; text-align: center; padding: 4rem 0 2.5rem;" id="products-hero">
     <div class="container" style="max-width: 800px;">
-      <span class="subtitle">Our Collection</span>
-      <h1 class="section-title">Pastificio Products Catalog</h1>
-      <p class="lead-text">Explore our premium dry filled and classic pasta ranges, developed with Italian culinary heritage to fit modern consumer habits and high-throughput B2B distribution.</p>
+      <span class="subtitle">La Nostra Collezione</span>
+      <h1 class="section-title">Catalogo Prodotti del Pastificio</h1>
+      <p class="lead-text">Esplora le nostre gamme premium di pasta secca ripiena e classica, sviluppate con il patrimonio culinario italiano per adattarsi alle abitudini moderne dei consumatori e alla distribuzione B2B ad alto volume.</p>
     </div>
   </section>
 
   <!-- Catalog Section -->
   <section class="section" style="padding-top: 2rem;" id="catalog-section">
     <div class="container">
-      
+
       <!-- Catalog Filter Tabs -->
       <div class="tabs-nav" id="catalog-tabs">
-        <button class="tab-btn tab-btn--active" data-category="all" id="btn-all">All Products</button>
+        <button class="tab-btn tab-btn--active" data-category="all" id="btn-all">Tutti i Prodotti</button>
         <button class="tab-btn" data-category="ready-rounds" id="btn-ready-rounds">Ready Rounds</button>
         <button class="tab-btn" data-category="take-it-easy" id="btn-take-it-easy">Take It Easy</button>
-        <button class="tab-btn" data-category="stuffed-dry" id="btn-stuffed-dry">Stuffed Dry Pasta</button>
-        <button class="tab-btn" data-category="classic-dry" id="btn-classic-dry">Classic Dry Pasta</button>
-        <button class="tab-btn" data-category="ambient" id="btn-ambient">Ambient Pasta</button>
+        <button class="tab-btn" data-category="stuffed-dry" id="btn-stuffed-dry">Pasta Secca Ripiena</button>
+        <button class="tab-btn" data-category="classic-dry" id="btn-classic-dry">Pasta Secca Classica</button>
+        <button class="tab-btn" data-category="ambient" id="btn-ambient">Pasta a Lunga Conservazione</button>
       </div>
 
       <!-- Products Catalog Grid -->
@@ -82,63 +82,63 @@
         <!-- READY ROUNDS PROMO BANNER (Option 2) -->
         <div class="rr-promo-card product-card" data-category="ready-rounds" id="rr-promo-banner">
           <div class="rr-promo-card__img-wrapper">
-            <img src="assets/img/ready-rounds-promo.jpg" alt="Ready Rounds Campaign" class="rr-promo-card__img">
+            <img src="../assets/img/ready-rounds-premium-stuffed-pasta-bologna.jpg" alt="Campagna Ready Rounds" class="rr-promo-card__img">
           </div>
           <div class="rr-promo-card__content">
-            <span class="rr-promo-card__subtitle">Instant Revolution</span>
+            <span class="rr-promo-card__subtitle">Rivoluzione Istantanea</span>
             <h2 class="rr-promo-card__title">Ready Rounds</h2>
-            <p class="rr-promo-card__desc">Enjoy restaurant-quality stuffed pasta in just 5 minutes. Engineered with real traditional recipes for busy paces.</p>
+            <p class="rr-promo-card__desc">Goditi pasta ripiena di qualità da ristorante in soli 5 minuti. Realizzata con autentiche ricette tradizionali per i ritmi frenetici.</p>
             <div class="rr-promo-card__badge-row">
               <span class="rr-promo-card__badge">Veni Vidi Cheesy</span>
               <span class="rr-promo-card__badge" style="background-color: var(--color-dark);">Hot like Rome</span>
-              <span class="rr-promo-card__prop">Prep: 5 min</span>
+              <span class="rr-promo-card__prop">Preparazione: 5 min</span>
             </div>
           </div>
         </div>
 
         <!-- READY ROUNDS -->
         <div class="product-card" data-category="ready-rounds" id="prod-rr-nero">
-          <span class="product-card__badge">Hot</span>
+          <span class="product-card__badge">Piccante</span>
           <div class="product-card__img-container">
-            <img src="assets/img/ready-rounds-tortellini-cup-nero-pomodoro-tomato-jalapeno-v2.jpg" alt="Nero's Inferno Cup" class="product-card__img">
+            <img src="../assets/img/ready-rounds-tortellini-cup-nero-pomodoro-tomato-jalapeno-v2.jpg" alt="Tazza Nero's Inferno" class="product-card__img">
           </div>
           <div class="product-card__info">
             <span class="product-card__cat">Ready Rounds</span>
             <h3 class="product-card__title">Nero's Inferno</h3>
-            <p class="product-card__desc">Spicy tomato and jalapeño filled tortellini. Gourmet quality in a cup, ready in 5 minutes with hot water.</p>
+            <p class="product-card__desc">Tortellini ripieni al pomodoro piccante e jalapeño. Qualità gourmet in tazza, pronta in 5 minuti con acqua calda.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 80g Cup</span>
-              <span class="product-card__prop">Prep: 5 min</span>
+              <span class="product-card__prop">Formato: Tazza 80g</span>
+              <span class="product-card__prop">Preparazione: 5 min</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="ready-rounds" id="prod-rr-caracalla">
           <div class="product-card__img-container">
-            <img src="assets/img/ready-rounds-tortellini-cup-caracalla-brodo-vegetable-broth-v2.jpg" alt="Caracalla Ardens Cup" class="product-card__img">
+            <img src="../assets/img/ready-rounds-tortellini-cup-caracalla-brodo-vegetable-broth-v2.jpg" alt="Tazza Caracalla Ardens" class="product-card__img">
           </div>
           <div class="product-card__info">
             <span class="product-card__cat">Ready Rounds</span>
             <h3 class="product-card__title">Caracalla Ardens</h3>
-            <p class="product-card__desc">Delicate cheese tortellini with an elegant vegetable broth powder packet. Just add water and wait.</p>
+            <p class="product-card__desc">Delicati tortellini al formaggio con un elegante bustina di brodo vegetale in polvere. Aggiungi solo acqua e attendi.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 80g Cup</span>
-              <span class="product-card__prop">Prep: 5 min</span>
+              <span class="product-card__prop">Formato: Tazza 80g</span>
+              <span class="product-card__prop">Preparazione: 5 min</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="ready-rounds" id="prod-rr-caesar">
           <div class="product-card__img-container">
-            <img src="assets/img/ready-rounds-tortellini-cup-caesar-formaggio-cheese-v2.jpg" alt="Cheesy Caesar Cup" class="product-card__img">
+            <img src="../assets/img/ready-rounds-tortellini-cup-caesar-formaggio-cheese-v2.jpg" alt="Tazza Cheesy Caesar" class="product-card__img">
           </div>
           <div class="product-card__info">
             <span class="product-card__cat">Ready Rounds</span>
             <h3 class="product-card__title">Cheesy Caesar</h3>
-            <p class="product-card__desc">A rich four-cheese stuffed tortellini cup. Premium comfort food engineered for fast-paced schedules.</p>
+            <p class="product-card__desc">Una ricca tazza di tortellini ripieni ai quattro formaggi. Comfort food premium progettato per agende frenetiche.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 80g Cup</span>
-              <span class="product-card__prop">Prep: 5 min</span>
+              <span class="product-card__prop">Formato: Tazza 80g</span>
+              <span class="product-card__prop">Preparazione: 5 min</span>
             </div>
           </div>
         </div>
@@ -147,30 +147,30 @@
         <div class="product-card" data-category="take-it-easy" id="prod-tie-cacio">
           <span class="product-card__badge">Best Seller</span>
           <div class="product-card__img-container">
-            <img src="assets/img/take-it-easy-quick-tortellini-cacio-pepe.jpg" alt="Cacio e Pepe Packet" class="product-card__img">
+            <img src="../assets/img/take-it-easy-quick-tortellini-cacio-pepe.jpg" alt="Confezione Cacio e Pepe" class="product-card__img">
           </div>
           <div class="product-card__info">
             <span class="product-card__cat">Take It Easy</span>
             <h3 class="product-card__title">Cacio e Pepe</h3>
-            <p class="product-card__desc">Roman Pecorino Romano cheese and crushed black pepper coated dry stuffed pasta. Restaurant quality in minutes.</p>
+            <p class="product-card__desc">Pasta secca ripiena ricoperta di Pecorino Romano e pepe nero macinato. Qualità da ristorante in pochi minuti.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g Pack</span>
-              <span class="product-card__prop">Prep: 8 min</span>
+              <span class="product-card__prop">Formato: Confezione 250g</span>
+              <span class="product-card__prop">Preparazione: 8 min</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="take-it-easy" id="prod-tie-sorrentino">
           <div class="product-card__img-container">
-            <img src="assets/img/take-it-easy-quick-tortellini-pomodoro-scamorza-tomato.jpg" alt="Sorrentino Packet" class="product-card__img">
+            <img src="../assets/img/take-it-easy-quick-tortellini-pomodoro-scamorza-tomato.jpg" alt="Confezione Sorrentino" class="product-card__img">
           </div>
           <div class="product-card__info">
             <span class="product-card__cat">Take It Easy</span>
             <h3 class="product-card__title">Sorrentino Tomato</h3>
-            <p class="product-card__desc">Dry filled tortellini with sweet tomato, scamorza cheese, and a hint of basil. Sauce is pre-coated on the pasta.</p>
+            <p class="product-card__desc">Tortellini secchi ripieni con dolce pomodoro, scamorza e un tocco di basilico. La salsa è già pre-applicata sulla pasta.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g Pack</span>
-              <span class="product-card__prop">Prep: 8 min</span>
+              <span class="product-card__prop">Formato: Confezione 250g</span>
+              <span class="product-card__prop">Preparazione: 8 min</span>
             </div>
           </div>
         </div>
@@ -178,45 +178,45 @@
         <!-- STUFFED DRY PASTA -->
         <div class="product-card" data-category="stuffed-dry" id="prod-sd-ricotta">
           <div class="product-card__img-container">
-            <img src="assets/img/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg" alt="Ricotta Spinach Tortellini" class="product-card__img">
+            <img src="../assets/img/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg" alt="Tortellini Ricotta e Spinaci" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Stuffed Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Ripiena</span>
             <h3 class="product-card__title">Ricotta & Spinach</h3>
-            <p class="product-card__desc">Classic dry tortellini filled with delicate cow ricotta and selected spinach. Long shelf life, timeless recipe.</p>
+            <p class="product-card__desc">Classici tortellini secchi ripieni di delicata ricotta vaccina e spinaci selezionati. Lunga conservazione, ricetta senza tempo.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g / 500g</span>
-              <span class="product-card__prop">Shelf Life: 16m</span>
+              <span class="product-card__prop">Formato: 250g / 500g</span>
+              <span class="product-card__prop">Conservazione: 16m</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="stuffed-dry" id="prod-sd-tricolor">
           <div class="product-card__img-container">
-            <img src="assets/img/classic-stuffed-pasta-tortellini-tricolore-formaggio-cheese.jpg" alt="Tricolor Cheese Tortellini" class="product-card__img">
+            <img src="../assets/img/classic-stuffed-pasta-tortellini-tricolore-formaggio-cheese.jpg" alt="Tortellini Tricolore al Formaggio" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Stuffed Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Ripiena</span>
             <h3 class="product-card__title">Tricolor Cheese</h3>
-            <p class="product-card__desc">Three-colored semolina shells (spinach, tomato, classic) stuffed with a blend of fine Italian cheeses.</p>
+            <p class="product-card__desc">Gusci di semola a tre colori (spinaci, pomodoro, classico) ripieni di una miscela di pregiati formaggi italiani.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g / 500g</span>
-              <span class="product-card__prop">Shelf Life: 16m</span>
+              <span class="product-card__prop">Formato: 250g / 500g</span>
+              <span class="product-card__prop">Conservazione: 16m</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="stuffed-dry" id="prod-sd-ham">
           <div class="product-card__img-container">
-            <img src="assets/img/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg" alt="Prosciutto Ham Tortellini" class="product-card__img">
+            <img src="../assets/img/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg" alt="Tortellini al Prosciutto" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Stuffed Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Ripiena</span>
             <h3 class="product-card__title">Prosciutto & Ham</h3>
-            <p class="product-card__desc">Stuffed with cured Italian prosciutto ham. Captures the authentic culinary core of Bologna's tradition.</p>
+            <p class="product-card__desc">Ripieni di prosciutto crudo italiano stagionato. Catturano l'autentico cuore culinario della tradizione di Bologna.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g / 500g</span>
-              <span class="product-card__prop">Shelf Life: 16m</span>
+              <span class="product-card__prop">Formato: 250g / 500g</span>
+              <span class="product-card__prop">Conservazione: 16m</span>
             </div>
           </div>
         </div>
@@ -224,15 +224,15 @@
         <div class="product-card" data-category="stuffed-dry" id="prod-sd-gorgonzola">
           <span class="product-card__badge">Gourmet</span>
           <div class="product-card__img-container">
-            <img src="assets/img/gourmet-stuffed-pasta-tortelloni-gorgonzola-mixed-cheese.jpg" alt="Tortelloni Gorgonzola" class="product-card__img">
+            <img src="../assets/img/gourmet-stuffed-pasta-tortelloni-gorgonzola-mixed-cheese.jpg" alt="Tortelloni Gorgonzola" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Stuffed Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Ripiena</span>
             <h3 class="product-card__title">Gorgonzola Gourmet</h3>
-            <p class="product-card__desc">Bespoke larger tortelloni stuffed with sharp Gorgonzola PDO and mixed soft cheeses for an intense flavor.</p>
+            <p class="product-card__desc">Tortelloni più grandi su misura, ripieni di Gorgonzola DOP intenso e formaggi morbidi misti per un sapore deciso.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g Pack</span>
-              <span class="product-card__prop">Shelf Life: 16m</span>
+              <span class="product-card__prop">Formato: Confezione 250g</span>
+              <span class="product-card__prop">Conservazione: 16m</span>
             </div>
           </div>
         </div>
@@ -240,15 +240,15 @@
         <div class="product-card" data-category="stuffed-dry" id="prod-sd-pecorino">
           <span class="product-card__badge">Gourmet</span>
           <div class="product-card__img-container">
-            <img src="assets/img/gourmet-stuffed-pasta-tortelloni-pecorino-spinaci-spinach.jpg" alt="Tortelloni Pecorino" class="product-card__img">
+            <img src="../assets/img/gourmet-stuffed-pasta-tortelloni-pecorino-spinaci-spinach.jpg" alt="Tortelloni Pecorino" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Stuffed Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Ripiena</span>
             <h3 class="product-card__title">Pecorino & Spinach</h3>
-            <p class="product-card__desc">Large tortelloni packed with structured Pecorino cheese and tender spinach leaves. Robust, complex taste.</p>
+            <p class="product-card__desc">Grandi tortelloni ripieni di strutturato Pecorino e tenere foglie di spinaci. Gusto robusto e complesso.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g Pack</span>
-              <span class="product-card__prop">Shelf Life: 16m</span>
+              <span class="product-card__prop">Formato: Confezione 250g</span>
+              <span class="product-card__prop">Conservazione: 16m</span>
             </div>
           </div>
         </div>
@@ -256,30 +256,30 @@
         <div class="product-card" data-category="stuffed-dry" id="prod-sd-pomodoro">
           <span class="product-card__badge">Gourmet</span>
           <div class="product-card__img-container">
-            <img src="assets/img/gourmet-stuffed-pasta-tortelloni-pomodoro-mozzarella.jpg" alt="Tortelloni Tomato Mozzarella" class="product-card__img">
+            <img src="../assets/img/gourmet-stuffed-pasta-tortelloni-pomodoro-mozzarella.jpg" alt="Tortelloni Pomodoro e Mozzarella" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Stuffed Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Ripiena</span>
             <h3 class="product-card__title">Tomato & Mozzarella</h3>
-            <p class="product-card__desc">Mediterranean tortelloni filled with creamy Mozzarella, sweet tomatoes, and a light hint of oregano.</p>
+            <p class="product-card__desc">Tortelloni mediterranei ripieni di cremosa Mozzarella, dolci pomodori e un leggero tocco di origano.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g Pack</span>
-              <span class="product-card__prop">Shelf Life: 16m</span>
+              <span class="product-card__prop">Formato: Confezione 250g</span>
+              <span class="product-card__prop">Conservazione: 16m</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="stuffed-dry" id="prod-sd-ravioli">
           <div class="product-card__img-container">
-            <img src="assets/img/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg" alt="Ravioli Cheese" class="product-card__img">
+            <img src="../assets/img/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg" alt="Ravioli al Formaggio" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Stuffed Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Ripiena</span>
             <h3 class="product-card__title">Ravioli with Cheese</h3>
-            <p class="product-card__desc">Traditional square ravioli stuffed with a delicate blend of Ricotta, Grana Padano, and Pecorino Romano.</p>
+            <p class="product-card__desc">Ravioli quadrati tradizionali ripieni di una delicata miscela di Ricotta, Grana Padano e Pecorino Romano.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 250g Pack</span>
-              <span class="product-card__prop">Shelf Life: 16m</span>
+              <span class="product-card__prop">Formato: Confezione 250g</span>
+              <span class="product-card__prop">Conservazione: 16m</span>
             </div>
           </div>
         </div>
@@ -287,105 +287,105 @@
         <!-- CLASSIC DRY PASTA -->
         <div class="product-card" data-category="classic-dry" id="prod-cd-fettspinach">
           <div class="product-card__img-container">
-            <img src="assets/img/premium-egg-pasta-fettuccine-paglia-fieno.jpg" alt="Spinach Egg Fettuccine Nests" class="product-card__img">
+            <img src="../assets/img/premium-egg-pasta-fettuccine-paglia-fieno.jpg" alt="Nidi di Fettuccine all'Uovo e Spinaci" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Classic Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Classica</span>
             <h3 class="product-card__title">Spinach & Egg Fettuccine</h3>
-            <p class="product-card__desc">Spinach and egg nest fettuccine (paglia e fieno). Traditional bronze-die texturing for sauce retention.</p>
+            <p class="product-card__desc">Nidi di fettuccine all'uovo e spinaci (paglia e fieno). Trafilatura tradizionale al bronzo per trattenere il sugo.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Type: Egg & Veg</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Tipo: Uovo & Verdura</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="classic-dry" id="prod-cd-fettuccine">
           <div class="product-card__img-container">
-            <img src="assets/img/premium-egg-pasta-fettuccine.jpg" alt="Egg Fettuccine Nests" class="product-card__img">
+            <img src="../assets/img/premium-egg-pasta-fettuccine.jpg" alt="Nidi di Fettuccine all'Uovo" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Classic Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Classica</span>
             <h3 class="product-card__title">Premium Egg Fettuccine</h3>
-            <p class="product-card__desc">Thin egg fettuccine nests rolled with premium durum wheat semolina and fresh barn eggs.</p>
+            <p class="product-card__desc">Sottili nidi di fettuccine all'uovo arrotolati con semola di grano duro premium e uova fresche di fattoria.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Type: Egg Pasta</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Tipo: Pasta all'Uovo</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="classic-dry" id="prod-cd-lasagnette">
           <div class="product-card__img-container">
-            <img src="assets/img/premium-egg-pasta-lasagnette.jpg" alt="Egg Lasagnette Nests" class="product-card__img">
+            <img src="../assets/img/premium-egg-pasta-lasagnette.jpg" alt="Nidi di Lasagnette all'Uovo" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Classic Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Classica</span>
             <h3 class="product-card__title">Egg Lasagnette</h3>
-            <p class="product-card__desc">Ruffled-edge lasagnette nests, traditional recipe of Emilia-Romagna. Excellent for creamy meat sauces.</p>
+            <p class="product-card__desc">Nidi di lasagnette dai bordi increspati, ricetta tradizionale dell'Emilia-Romagna. Ideali per sughi cremosi alla carne.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Type: Egg Pasta</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Tipo: Pasta all'Uovo</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="classic-dry" id="prod-cd-tagliatelle">
           <div class="product-card__img-container">
-            <img src="assets/img/premium-egg-pasta-tagliatelle.jpg" alt="Tagliatelle Nests" class="product-card__img">
+            <img src="../assets/img/premium-egg-pasta-tagliatelle.jpg" alt="Nidi di Tagliatelle" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Classic Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Classica</span>
             <h3 class="product-card__title">Premium Tagliatelle</h3>
-            <p class="product-card__desc">The classic Bolognese tagliatelle, rolled thin and textured to lock in rich bolognese meat ragù.</p>
+            <p class="product-card__desc">Le classiche tagliatelle bolognesi, tirate sottili e texturizzate per trattenere il ricco ragù di carne alla bolognese.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Type: Egg Pasta</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Tipo: Pasta all'Uovo</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="classic-dry" id="prod-cd-rainbow">
           <div class="product-card__img-container">
-            <img src="assets/img/flavored-pasta-orecchiette-arcobaleno-rainbow.jpg" alt="Rainbow Orecchiette" class="product-card__img">
+            <img src="../assets/img/flavored-pasta-orecchiette-arcobaleno-rainbow.jpg" alt="Orecchiette Arcobaleno" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Classic Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Classica</span>
             <h3 class="product-card__title">Rainbow Orecchiette</h3>
-            <p class="product-card__desc">Artisanal orecchiette naturally colored with beetroot, spinach, turmeric, and black carrot powders.</p>
+            <p class="product-card__desc">Orecchiette artigianali colorate naturalmente con polveri di barbabietola, spinaci, curcuma e carota nera.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Type: Flavored</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Tipo: Aromatizzata</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="classic-dry" id="prod-cd-fiveveg">
           <div class="product-card__img-container">
-            <img src="assets/img/flavored-pasta-pennette-cinque-sapori-five-flavors-vegetables.jpg" alt="Five Vegetables Penne" class="product-card__img">
+            <img src="../assets/img/flavored-pasta-pennette-cinque-sapori-five-flavors-vegetables.jpg" alt="Penne ai Cinque Sapori di Verdura" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Classic Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Classica</span>
             <h3 class="product-card__title">Five Vegetables Penne</h3>
-            <p class="product-card__desc">Colored pennette pasta colored naturally with dehydrated vegetable powders. Vibrant, healthy, and fun.</p>
+            <p class="product-card__desc">Pennette colorate naturalmente con polveri di verdura disidratata. Vivaci, sane e divertenti.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Type: Flavored</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Tipo: Aromatizzata</span>
             </div>
           </div>
         </div>
 
         <div class="product-card" data-category="classic-dry" id="prod-cd-capricci">
           <div class="product-card__img-container">
-            <img src="assets/img/flavored-pasta-capricci-ortolana-vegetable.jpg" alt="Vegetable Capricci" class="product-card__img">
+            <img src="../assets/img/flavored-pasta-capricci-ortolana-vegetable.jpg" alt="Capricci alle Verdure" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Classic Dry Pasta</span>
+            <span class="product-card__cat">Pasta Secca Classica</span>
             <h3 class="product-card__title">Vegetable Capricci</h3>
-            <p class="product-card__desc">Curly, whimsical capricci (curly noodles) colored naturally with garden greens and reds.</p>
+            <p class="product-card__desc">Capricci ricci e stravaganti colorati naturalmente con verdure verdi e rosse dell'orto.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Type: Flavored</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Tipo: Aromatizzata</span>
             </div>
           </div>
         </div>
@@ -393,15 +393,15 @@
         <!-- AMBIENT PASTA -->
         <div class="product-card" data-category="ambient" id="prod-amb-gnocchi">
           <div class="product-card__img-container">
-            <img src="assets/img/classic-italian-pasta-gnocchi-patate-potato.jpg" alt="Potato Gnocchi" class="product-card__img">
+            <img src="../assets/img/classic-italian-pasta-gnocchi-patate-potato.jpg" alt="Gnocchi di Patate" class="product-card__img">
           </div>
           <div class="product-card__info">
-            <span class="product-card__cat">Ambient Pasta</span>
+            <span class="product-card__cat">Pasta a Lunga Conservazione</span>
             <h3 class="product-card__title">Classic Potato Gnocchi</h3>
-            <p class="product-card__desc">Pillowy potato gnocchi made with 80% real potato purée. Shelf stable at room temp, cooks in 2 mins.</p>
+            <p class="product-card__desc">Soffici gnocchi di patate realizzati con l'80% di vera purea di patate. Stabili a temperatura ambiente, cuociono in 2 minuti.</p>
             <div class="product-card__footer">
-              <span class="product-card__prop">Format: 500g Pack</span>
-              <span class="product-card__prop">Prep: 2 min</span>
+              <span class="product-card__prop">Formato: Confezione 500g</span>
+              <span class="product-card__prop">Preparazione: 2 min</span>
             </div>
           </div>
         </div>
@@ -413,9 +413,9 @@
   <!-- CTA Banner Section -->
   <section class="cta" id="cta-section">
     <div class="cta__content">
-      <h2 class="cta__title">Request Wholesale Pricing</h2>
-      <p class="cta__desc">Are you a distributor, supermarket buyer, or foodservice group? Contact us for B2B pricing and shipping details.</p>
-      <a href="contact.html" class="btn btn--outline">Contact Sales</a>
+      <h2 class="cta__title">Richiedi i Prezzi all'Ingrosso</h2>
+      <p class="cta__desc">Sei un distributore, un buyer della grande distribuzione o un gruppo della ristorazione? Contattaci per i prezzi B2B e i dettagli di spedizione.</p>
+      <a href="contact.html" class="btn btn--outline">Contatta le Vendite</a>
     </div>
   </section>
 
@@ -424,27 +424,27 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__col-brand" id="footer-col-brand">
-          <img src="assets/img/Nero-Rosso-Moderno-Vino-Logo.gif" alt="Pastificio Bolognese" id="footer-logo">
-          <p>Pastificio Bolognese is the flagship brand of Società Alimentari Italiana (S.A.I. SpA). Decades of heritage and industrial reliability.</p>
+          <img src="../assets/img/Nero-Rosso-Moderno-Vino-Logo.gif" alt="Pastificio Bolognese" id="footer-logo">
+          <p>Pastificio Bolognese è il marchio di punta di Società Alimentari Italiana (S.A.I. SpA). Decenni di tradizione e affidabilità industriale.</p>
           <div class="footer__social">
             <a href="https://www.facebook.com/profile.php?id=100095299984990" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07"/></svg></a>
             <a href="https://www.instagram.com/pastificiobolognese1988/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.07-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/></svg></a>
             <a href="https://www.linkedin.com/company/pastificio-bolognese-dal-1988/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0"/></svg></a>
           </div>
-          <div class="footer__copy">&copy; 2026 Pastificio Bolognese. All rights reserved.</div>
+          <div class="footer__copy">&copy; 2026 Pastificio Bolognese. Tutti i diritti riservati.</div>
         </div>
-        
+
         <div class="footer__col" id="footer-col-links">
-          <h4 class="footer__col-title">Navigation</h4>
+          <h4 class="footer__col-title">Navigazione</h4>
           <ul class="footer__list">
             <li><a href="index.html" class="footer__link">Home</a></li>
-            <li><a href="products.html" class="footer__link">Products</a></li>
+            <li><a href="products.html" class="footer__link">Prodotti</a></li>
             <li><a href="private-label.html" class="footer__link">Private Label</a></li>
-            <li><a href="company.html" class="footer__link">Company Profile</a></li>
-            <li><a href="contact.html" class="footer__link">Contact Us</a></li>
+            <li><a href="company.html" class="footer__link">Azienda</a></li>
+            <li><a href="contact.html" class="footer__link">Contatti</a></li>
           </ul>
         </div>
-        
+
         <div class="footer__col" id="footer-col-info">
           <h4 class="footer__col-title">SAI S.p.A.</h4>
           <address class="footer__address">
@@ -454,31 +454,31 @@
             <span>Email: <a href="mailto:info@pastificiobolognese1988.com">info@pastificiobolognese1988.com</a></span>
           </address>
         </div>
-        
+
         <div class="footer__col-newsletter" id="footer-col-newsletter">
           <h4 class="footer__col-title">Newsletter</h4>
-          <p>Subscribe to our newsletter to receive updates on new product launches, trade shows, and industrial insights.</p>
+          <p>Iscriviti alla nostra newsletter per ricevere aggiornamenti su nuovi lanci, fiere ed eventi del settore.</p>
           <form class="newsletter-form" id="footer-newsletter-form">
-            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Email Address">
+            <input type="email" placeholder="Indirizzo Email" required class="newsletter-input" aria-label="Indirizzo Email">
             <button type="submit" class="newsletter-btn" id="newsletter-submit-btn">OK</button>
           </form>
         </div>
       </div>
-      
+
       <div class="footer__bottom">
         <div class="footer__copy">
-          S.A.I. Società Alimentari Italiana S.p.A. - P.IVA 01924440496 - Admin Headquarters: Via di San Basilio 41, 00187 Roma (IT) | Production: Via Cà dell'Orbo Nord 13, 40055 Castenaso Loc. Villanova, Bologna (IT).
+          S.A.I. Società Alimentari Italiana S.p.A. - P.IVA 01924440496 - Sede Legale: Via di San Basilio 41, 00187 Roma (IT) | Stabilimento: Via Cà dell'Orbo Nord 13, 40055 Castenaso Loc. Villanova, Bologna (IT).
         </div>
         <div class="footer__meta">
           <a href="#" id="footer-privacy">Privacy Policy</a>
-          <a href="#" id="footer-terms">Terms of Service</a>
+          <a href="#" id="footer-terms">Condizioni d'Uso</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
-  
+  <script src="../assets/js/main.js"></script>
+
   <!-- Anchor Navigation Filter script -->
   <script>
     window.addEventListener('load', () => {
