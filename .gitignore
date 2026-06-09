@@ -1,0 +1,5 @@
+# Ignore system-generated files or logs
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
