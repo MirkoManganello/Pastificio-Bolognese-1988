@@ -1227,7 +1227,7 @@ a {
     margin: 0 auto;
 }
 
-.faq-item {
+.faq-list .faq-item {
     background-color: var(--white);
     border: 1px solid var(--cream-dark);
     border-radius: var(--border-radius-md);
@@ -1235,7 +1235,7 @@ a {
     overflow: hidden;
 }
 
-.faq-item summary {
+.faq-list .faq-item summary {
     cursor: pointer;
     padding: 18px 22px;
     font-family: var(--font-heading);
@@ -1248,9 +1248,9 @@ a {
     gap: 16px;
 }
 
-.faq-item summary::-webkit-details-marker { display: none; }
+.faq-list .faq-item summary::-webkit-details-marker { display: none; }
 
-.faq-item summary::after {
+.faq-list .faq-item summary::after {
     content: "+";
     font-size: 1.4rem;
     color: var(--terracotta);
@@ -1258,11 +1258,11 @@ a {
     transition: var(--transition-smooth);
 }
 
-.faq-item[open] summary::after {
+.faq-list .faq-item[open] summary::after {
     content: "−";
 }
 
-.faq-item-body {
+.faq-list .faq-item-body {
     padding: 0 22px 20px;
     font-size: 0.95rem;
     color: #555;
@@ -1275,6 +1275,137 @@ a {
         padding: 40px 28px;
     }
     .ship-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Region provenance pill (benchmark: Pasta Evangelists) */
+.product-card-region {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--olive-dark);
+    background-color: var(--cream);
+    border: 1px solid var(--cream-dark);
+    border-radius: 999px;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+}
+
+.product-card-region i {
+    color: var(--terracotta);
+    font-size: 0.8rem;
+}
+
+/* Primo Assaggio taster banner (benchmark: Goodles Trial Pack) */
+.taster-banner {
+    background-color: var(--white);
+    border: 2px solid var(--terracotta);
+    border-radius: var(--border-radius-lg);
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-md);
+}
+
+.taster-banner-img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+}
+
+.taster-banner-content {
+    padding: 44px 48px;
+}
+
+.taster-kicker {
+    display: inline-block;
+    background-color: var(--terracotta);
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+}
+
+.taster-banner-content h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.taster-banner-content > p {
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+.taster-includes {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    margin-bottom: 22px;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.taster-includes i {
+    color: var(--olive);
+    margin-right: 8px;
+}
+
+.taster-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.taster-price {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--terracotta);
+}
+
+.taster-price-compare {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.1rem;
+}
+
+.taster-save {
+    background-color: var(--olive);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: var(--border-radius-sm);
+    padding: 4px 10px;
+}
+
+.taster-smallprint {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+    .taster-banner {
+        grid-template-columns: 1fr;
+    }
+    .taster-banner-content {
+        padding: 32px 24px;
+    }
+    .taster-includes {
         grid-template-columns: 1fr;
     }
 }

@@ -645,7 +645,7 @@
                     
                     const itemHtml = `
                         <div class="cart-item">
-                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <img src="${item.img ? '../../../' + item.img.replace(/^(\.\.\/)+/, '') : ''}" alt="${item.name}" class="cart-item-img">
                             <div class="cart-item-details">
                                 <h4 class="cart-item-title">${item.name}</h4>
                                 <div class="cart-item-pack">${item.pack}</div>

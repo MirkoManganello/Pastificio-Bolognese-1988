@@ -356,6 +356,33 @@
         </div>
     </section>
 
+    <!-- Club Rewards (benchmark: Graza escalating perks) -->
+    <section class="section-padding" style="background-color: var(--cream);">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">The Longer You Stay, the Better It Gets</h2>
+                <p class="section-subtitle">Club rewards land in your box automatically. No points to track, no codes to remember.</p>
+            </div>
+            <div class="ship-steps">
+                <div class="ship-step">
+                    <span class="ship-step-num">1</span>
+                    <h3>Box One: Benvenuto</h3>
+                    <p>Your welcome box arrives with Gino's hand-signed recipe cards and a pantry guide to slow-dried sfoglia.</p>
+                </div>
+                <div class="ship-step">
+                    <span class="ship-step-num">3</span>
+                    <h3>Box Three: Un Regalo</h3>
+                    <p>A free gift joins your third box — aged Pecorino Romano or Gino's gourmet pairing sauce. Our way of saying grazie.</p>
+                </div>
+                <div class="ship-step">
+                    <span class="ship-step-num">6</span>
+                    <h3>Box Six: La Riserva</h3>
+                    <p>Unlock members-only seasonal shapes — truffle tortelloni in autumn, holiday tricolore in December. Never sold in the shop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQs Accordion Section -->
     <section class="section-padding">
         <div class="container">
@@ -588,7 +615,7 @@
                     
                     const itemHtml = `
                         <div class="cart-item">
-                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <img src="${item.img ? '../../' + item.img.replace(/^(\.\.\/)+/, '') : ''}" alt="${item.name}" class="cart-item-img">
                             <div class="cart-item-details">
                                 <h4 class="cart-item-title">${item.name}</h4>
                                 <div class="cart-item-pack">${item.pack}</div>

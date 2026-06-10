@@ -93,6 +93,40 @@
         </div>
     </section>
 
+    <!-- Primo Assaggio Taster Box (benchmark: Goodles Trial Pack entry product) -->
+    <section class="section-padding" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="taster-banner">
+                <img src="../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-tricolore-formaggio-cheese.jpg" alt="Primo Assaggio taster box with four Gino best sellers" class="taster-banner-img">
+                <div class="taster-banner-content">
+                    <span class="taster-kicker">New to Gino? Start Here</span>
+                    <h2>Primo Assaggio — The First Taste Box</h2>
+                    <p>Our four best sellers in one box. The lowest-risk way to find out what slow-dried Bolognese sfoglia actually tastes like.</p>
+                    <ul class="taster-includes">
+                        <li><i class="fa-solid fa-check"></i> Prosciutto Tortellini (250g)</li>
+                        <li><i class="fa-solid fa-check"></i> Four Cheese Ravioli (250g)</li>
+                        <li><i class="fa-solid fa-check"></i> Ready Rounds: Rosso Pomodoro</li>
+                        <li><i class="fa-solid fa-check"></i> Gino's recipe card, hand-signed</li>
+                    </ul>
+                    <div class="taster-price-row">
+                        <span class="taster-price">$24.95</span>
+                        <span class="taster-price-compare">$30.45</span>
+                        <span class="taster-save">SAVE 18%</span>
+                    </div>
+                    <button class="btn btn-primary add-to-cart-btn"
+                            data-id="primo-assaggio"
+                            data-name="Primo Assaggio — The First Taste Box"
+                            data-price="24.95"
+                            data-img="../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-tricolore-formaggio-cheese.jpg"
+                            data-pack="Taster Box (3 products + recipe card)">
+                        Try the First Taste Box
+                    </button>
+                    <p class="taster-smallprint">One per customer · Free shipping included · Loved it? Your next stop is the Pasta Club.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Product Showcase -->
     <section class="section-padding">
         <div class="container">
@@ -109,6 +143,7 @@
                         <img src="../wp-content/uploads/2026/05/classic-stuffed-pasta-tortellini-prosciutto-ham.jpg" alt="Prosciutto di Parma and Parmigiano Reggiano Tortellini" class="product-card-image">
                     </div>
                     <div class="product-card-info">
+                        <span class="product-card-region"><i class="fa-solid fa-location-dot"></i> Bologna, Emilia-Romagna</span>
                         <h3 class="product-card-title">Artisanal Prosciutto Tortellini</h3>
                         <p class="product-card-description">Classic Bolognese filled pasta packed with 24-month aged Parmigiano Reggiano and genuine Italian Prosciutto.</p>
                         <p class="product-card-stats"><span><i class="fa-solid fa-stopwatch"></i>3 min</span> <span><i class="fa-solid fa-utensils"></i>4 servings</span></p>
@@ -136,6 +171,7 @@
                         <img src="../wp-content/uploads/2026/05/ready-rounds-premium-stuffed-pasta-bologna.jpg" alt="Ready Rounds Tomato and Cheese Cup Pasta" class="product-card-image">
                     </div>
                     <div class="product-card-info">
+                        <span class="product-card-region"><i class="fa-solid fa-location-dot"></i> Bologna, Emilia-Romagna</span>
                         <h3 class="product-card-title">Ready Rounds: Rosso Pomodoro</h3>
                         <p class="product-card-description">Premium single-serve filled rounds with spicy tomato and scamorza. Ready in 90 seconds. No skill required.</p>
                         <p class="product-card-stats"><span><i class="fa-solid fa-stopwatch"></i>90 sec</span> <span><i class="fa-solid fa-utensils"></i>1 serving</span></p>
@@ -163,6 +199,7 @@
                         <img src="../wp-content/uploads/2026/05/classic-stuffed-pasta-ravioli-formaggi-cheese.jpg" alt="Italian Four Cheese Ravioli" class="product-card-image">
                     </div>
                     <div class="product-card-info">
+                        <span class="product-card-region"><i class="fa-solid fa-location-dot"></i> Emilia-Romagna</span>
                         <h3 class="product-card-title">Four Cheese Ravioli Box</h3>
                         <p class="product-card-description">Four-pack box of classic stuffed ravioli. Mild Ricotta, sharp Pecorino, Scamorza and sweet Gorgonzola DOP.</p>
                         <p class="product-card-stats"><span><i class="fa-solid fa-stopwatch"></i>4 min</span> <span><i class="fa-solid fa-utensils"></i>8 servings</span></p>
@@ -190,6 +227,7 @@
                         <img src="../wp-content/uploads/2026/05/flavored-pasta-orecchiette-arcobaleno-rainbow.jpg" alt="Specialty Tricolore Rainbow Pasta" class="product-card-image">
                     </div>
                     <div class="product-card-info">
+                        <span class="product-card-region"><i class="fa-solid fa-location-dot"></i> Puglia</span>
                         <h3 class="product-card-title">Rainbow Orecchiette</h3>
                         <p class="product-card-description">Traditional bronze-die dry pasta flavored naturally with spinach, beetroot, turmeric, and black carrot.</p>
                         <p class="product-card-stats"><span><i class="fa-solid fa-stopwatch"></i>11 min</span> <span><i class="fa-solid fa-utensils"></i>5 servings</span></p>
@@ -313,6 +351,7 @@
                         <li><i class="fa-solid fa-calendar-check"></i> Pause, skip or cancel anytime — no lock-in</li>
                         <li><i class="fa-solid fa-envelope-open-text"></i> Gino's hand-signed recipe card in every box</li>
                         <li><i class="fa-solid fa-gift"></i> Makes a beautiful gift — add a personal note</li>
+                        <li><i class="fa-solid fa-trophy"></i> Stay 3 boxes, get a free gift: aged Pecorino or Gino's gourmet sauce</li>
                     </ul>
                     <a href="subscription/index.html" class="btn btn-primary">Join the Pasta Club</a>
                 </div>
@@ -687,7 +726,7 @@
                     
                     const itemHtml = `
                         <div class="cart-item">
-                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                            <img src="${item.img ? '../' + item.img.replace(/^(\.\.\/)+/, '') : ''}" alt="${item.name}" class="cart-item-img">
                             <div class="cart-item-details">
                                 <h4 class="cart-item-title">${item.name}</h4>
                                 <div class="cart-item-pack">${item.pack}</div>
