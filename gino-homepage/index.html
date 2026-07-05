@@ -178,6 +178,18 @@ var wc_cart_fragments_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_u
 .gino-welcome .x{position:absolute;top:8px;right:14px;background:none;border:none;font-size:26px;cursor:pointer;color:#555}
 .gino-welcome .code{font-size:1.4rem;font-weight:800;letter-spacing:.12em;color:#A31F24;background:#fff;border:2px dashed #A31F24;border-radius:10px;padding:12px;margin:10px 0}
 @media(max-width:860px){.gino-steps{grid-template-columns:1fr}.gino-compare{font-size:13px}}
+/* round-2 fixes */
+.gino-announce{position:fixed;top:0;left:0;right:0;z-index:100001}
+.bde-header-builder{top:40px !important}
+body{padding-top:40px}
+.gino-hero-eyebrow{text-transform:none;letter-spacing:normal;font-weight:500}
+.search-form__lightbox{display:none !important}
+.gino-added h2{color:#F7F3EC}
+.gino-added--cream h2,.gino-added--cream h3{color:#232323}
+.gino-step h3{color:#232323}
+.gino-faq summary{color:#232323}
+.gino-compare thead th{color:#F7F3EC}
+.gino-welcome-overlay{z-index:2147483000}
 </style>
 </head>
     
@@ -1003,7 +1015,15 @@ var wc_cart_fragments_params = {"ajax_url":"/wp-admin/admin-ajax.php","wc_ajax_u
 </div>
 </div></div>
 </div></div>
-</section><section class="bde-section-908-236 bde-section">
+</section>
+<div class="gino-ribbon">
+  <span>&#129370; 100% Italian Ingredients</span>
+  <span>&#127788;&#65039; Slow-Dried Sfoglia</span>
+  <span>&#128683; No Preservatives</span>
+  <span>&#128230; Pantry-Stable &mdash; No Fridge Needed</span>
+  <span>&#9201;&#65039; Ready in as Little as 5 Minutes</span>
+</div>
+<section class="bde-section-908-236 bde-section">
   
   
 	
@@ -2490,11 +2510,4 @@ if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded"
 </body>
 
     </html>
-<div class="gino-ribbon">
-  <span>&#129370; 100% Italian Ingredients</span>
-  <span>&#127788;&#65039; Slow-Dried Sfoglia</span>
-  <span>&#128683; No Preservatives</span>
-  <span>&#128230; Pantry-Stable &mdash; No Fridge Needed</span>
-  <span>&#9201;&#65039; Ready in as Little as 5 Minutes</span>
-</div>
 
